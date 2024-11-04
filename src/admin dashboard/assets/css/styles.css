@@ -172,3 +172,39 @@
 .badge-in-transit {
   background-color: #17a2b8;
 }
+
+// inbox //
+
+.inbox-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.search-bar {
+  width: 300px;
+}
+.inbox-table {
+  border-top: 1px solid #dee2e6;
+}
+.inbox-table .badge {
+  border-radius: 12px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+.badge-primary {
+  background-color: #17a2b8;
+  color: white;
+}
+.badge-social {
+  background-color: #6f42c1;
+  color: white;
+}
+.badge-work {
+  background-color: #fd7e14;
+  color: white;
+}
+.badge-friends {
+  background-color: #e83e8c;
+  color: white;
+}
