@@ -17,11 +17,21 @@ body {
   padding: 10px;
 }
 
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' #34a0a4,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
 /* Navbar Styling */
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
   padding: 10px 70px;
   background-color: #fff;
   color: #34a0a4;
@@ -29,7 +39,7 @@ body {
   position: absolute  ;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
 }
 
 .navbar-logo a {
