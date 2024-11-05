@@ -19,14 +19,23 @@
       <nav>
         <ul>
           <li><a href="/index.html">Home</a></li>
-          <li><a href="#">Features</a></li>
-          <li><a href="#">Contacts</a></li>
-          <li><a href="./src/checkout/checkout.html">Checkout</a></li>
+          <li class="dropdown">
+            <a href="#">Features</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Kirim Duit</a></li>
+              <li><a href="#">E-Wallet</a></li>
+              <li><a href="#">Top-up dan Tagihan</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="./src/page/checkout/checkout.html">Checkout</a></li>
         </ul>
       </nav>
       <div class="auth-buttons">
         <!-- Ini akan muncul jika user belum login -->
-        <a href="/src/page/login/login.html" class="signin-btn" id="sign-in-btn">Sign in</a>
+        <a href="/src/page/login/login.html" class="signin-btn" id="sign-in-btn"
+          >Sign in</a
+        >
 
         <!-- Ini akan muncul jika user telah login -->
         <div class="profile" id="profile-section" style="display: none">
@@ -201,8 +210,8 @@
         <div class="header-content transition-element-up">
           <h2>Kelola keuangan perusahaan</h2>
           <p>
-            Dengan Bayar-in Business, mengelola keuangan perusahaan anda
-            dengan aman dan mudah
+            Dengan Bayar-in Business, mengelola keuangan perusahaan anda dengan
+            aman dan mudah
           </p>
           <button class="learn-more-btn transition-element-up">
             Selengkapnya
@@ -230,8 +239,8 @@
           </div>
           <div class="text-content-explore transition-element-right">
             <h2>
-              Ayo, bergabung dalam perjalanan Bayar-in untuk menciptakan
-              layanan keuangan paling aman di dunia!
+              Ayo, bergabung dalam perjalanan Bayar-in untuk menciptakan layanan
+              keuangan paling aman di dunia!
             </h2>
             <button class="explore-btn">Selengkapnya</button>
           </div>
@@ -249,8 +258,8 @@
           </button>
           <div class="faq-answer">
             <p>
-              Bayar-in melayani lebih dari 20 bank, termasuk BCA, BNI,
-              Mandiri, BRI, dan banyak lainnya.
+              Bayar-in melayani lebih dari 20 bank, termasuk BCA, BNI, Mandiri,
+              BRI, dan banyak lainnya.
             </p>
           </div>
         </div>
@@ -305,8 +314,8 @@
 
           <div class="faq-answer">
             <p>
-              Ya, Bayar-in mendukung pembelian pulsa, paket data, dan
-              pembayaran PPOB lainnya.
+              Ya, Bayar-in mendukung pembelian pulsa, paket data, dan pembayaran
+              PPOB lainnya.
             </p>
           </div>
         </div>

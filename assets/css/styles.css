@@ -48,10 +48,52 @@ nav ul {
   gap: 20px;
 }
 
+nav ul li {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
 nav ul li a {
   text-decoration: none;
   color: #333;
   font-size: 16px;
+  padding: 10px 15px;
+  display: block;
+}
+nav ul li a:hover {
+  color:#34a0a4;
+}
+
+.dropdown-menu {
+  display: block; /* Set as block for transition effect */
+  opacity: 0;
+  transform: scale(0.8); /* Start smaller for popup effect */
+  transform-origin: top center; /* Set origin to the top center */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  transition: opacity 0.2s ease, transform 0.3s ease;
+  pointer-events: none; /* Hide dropdown from mouse events */
+  border-radius:8px;
+}
+
+.dropdown-menu li a {
+  padding: 10px 15px;
+  white-space: nowrap;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  transform: scale(1); /* Scale to full size */
+  pointer-events: auto; /* Enable mouse events when visible */
 }
 
 .auth-buttons a {
