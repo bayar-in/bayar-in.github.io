@@ -6,9 +6,9 @@
   --primary: hsl(222, 98%, 60%);
   --primary-lighter: hsl(240, 33%, 86%);
   --primary-gradient: linear-gradient(to right, #3671fd, #6f31ff);
-  --primary-color: #ec0b43;
+  --primary-color: #2ce1c6;
   --secondary-color: #58355e;
-  --teks-color-1: #f9ed5b;
+  --teks-color-1: #ffffff;
   --teks-color-2: #acff6c;
   --teks-color-3: #7ae7c7;
 }
