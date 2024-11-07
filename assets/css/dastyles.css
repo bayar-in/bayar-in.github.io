@@ -101,7 +101,7 @@
   border-radius: 8px;
 }
 
-// stock product//
+/* // stock product// */
 
 .product-stock-table {
   background-color: #f8f9fa;
@@ -128,7 +128,7 @@
   margin-right: 5px;
 }
 
-// order list //
+/* // order list // */
 
 .filter-section {
   display: flex;
@@ -173,7 +173,7 @@
   background-color: #17a2b8;
 }
 
-// inbox //
+/* // inbox // */
 
 .inbox-toolbar {
   display: flex;
