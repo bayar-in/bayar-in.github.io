@@ -70,19 +70,19 @@ function updateTotalPrice() {
   localStorage.setItem("quantity", quantity);
 }
 
-// Konfirmasi pembayaran
-function confirmPayment() {
-  const confirmation = confirm(
-    "Apakah Anda yakin ingin melanjutkan ke pembayaran?"
-  );
-  if (confirmation) {
-    Swal.fire({
-      icon: "error",
-      title: "Testing",
-      text: "Hi, from JSCroot",
-    });
-  }
-}
+// // Konfirmasi pembayaran
+// function confirmPayment() {
+//   const confirmation = confirm(
+//     "Apakah Anda yakin ingin melanjutkan ke pembayaran?"
+//   );
+//   if (confirmation) {
+//     Swal.fire({
+//       icon: "error",
+//       title: "Testing",
+//       text: "Hi, from JSCroot",
+//     });
+//   }
+// }
 
 // Memperbarui total harga awal saat halaman dimuat
 document.addEventListener("DOMContentLoaded", () => {
@@ -90,12 +90,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Konfirmasi pembayaran
+document.getElementById('tombolkonfir').addEventListener('click', confirmPayment);
+
 function confirmPayment() {
-  const confirmation = confirm(
-    "Apakah Anda yakin ingin melanjutkan ke pembayaran?"
-  );
+  const confirmation = confirm("Apakah Anda yakin ingin melanjutkan ke pembayaran?");
+  
   if (confirmation) {
-    alert("Pembayaran berhasil diproses!");
-    window.location.href = "confirm/confirmation.html"; // Redirect ke halaman konfirmasi
+    Swal.fire({
+      icon: 'success',
+      title: 'Pembayaran Berhasil!',
+      text: 'Pembayaran berhasil diproses!',
+    });
+  } else {
+    Swal.fire({
+      icon: 'info',
+      title: 'Pembayaran Dibatalkan',
+      text: 'Anda membatalkan proses pembayaran.',
+    });
   }
 }
