@@ -1,3 +1,7 @@
+import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
+import {addCSS} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.9/element.js";
+
+addCSS("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css");
 // Harga satuan produk
 let unitPrice = 80000;
 const insuranceCost = 600;
@@ -65,16 +69,29 @@ function updateTotalPrice() {
   localStorage.setItem("quantity", quantity);
 }
 
-// Konfirmasi pembayaran
-function confirmPayment() {
-  const confirmation = confirm(
-    "Apakah Anda yakin ingin melanjutkan ke pembayaran?"
-  );
-  if (confirmation) {
-    alert("Pembayaran berhasil diproses!");
-    // Tambahkan logika untuk proses pembayaran di sini
-  }
-}
+// // Konfirmasi pembayaran
+// function confirmPayment() {
+//   const confirmation = confirm(
+//     "Apakah Anda yakin ingin melanjutkan ke pembayaran?"
+//   );
+//   if (confirmation) {
+//     // Ganti alert dengan SweetAlert2
+//     Swal.fire({
+//       icon: 'success',  // Menandakan bahwa pembayaran berhasil
+//       title: 'Pembayaran Berhasil!',
+//       text: 'Pembayaran berhasil diproses! OKE',
+//     });
+    
+//     // Tambahkan logika untuk proses pembayaran di sini
+//   } else {
+//     // Opsional: Menambahkan alert jika user membatalkan pembayaran
+//     Swal.fire({
+//       icon: 'info',
+//       title: 'Pembayaran Dibatalkan',
+//       text: 'Anda membatalkan proses pembayaran.',
+//     });
+//   }
+// }
 
 // Memperbarui total harga awal saat halaman dimuat
 document.addEventListener("DOMContentLoaded", () => {
@@ -82,12 +99,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Konfirmasi pembayaran
+document.getElementById('tombolkonfir').addEventListener('click', confirmPayment);
+
 function confirmPayment() {
-  const confirmation = confirm(
-    "Apakah Anda yakin ingin melanjutkan ke pembayaran?"
-  );
+  const confirmation = confirm("Apakah Anda yakin ingin melanjutkan ke pembayaran?");
+  
   if (confirmation) {
-    alert("Pembayaran berhasil diproses!");
-    window.location.href = "confirm/confirmation.html"; // Redirect ke halaman konfirmasi
+    Swal.fire({
+      icon: 'success',
+      title: 'Pembayaran Berhasil!',
+      text: 'Pembayaran berhasil diproses!',
+    });
+  } else {
+    Swal.fire({
+      icon: 'info',
+      title: 'Pembayaran Dibatalkan',
+      text: 'Anda membatalkan proses pembayaran.',
+    });
   }
 }

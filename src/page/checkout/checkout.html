@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout</title>
     <link rel="stylesheet" href="checkout.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <nav class="navbar">
@@ -136,12 +137,12 @@
             <span>Total Tagihan</span><span id="total-price">Rp93.100</span>
           </p>
         </div>
-        <button class="pay-button" onclick="confirmPayment()">
+        <button id="tombolkonfir" class="pay-button" onclick="confirmPayment()">
           <span>🛡</span> Bayar
         </button>
       </div>
     </div>
 
-    <script src="checkout.js"></script>
+    <script src="checkout.js" type="module"></script>
   </body>
 </html>
