@@ -18,7 +18,7 @@ document
 
     try {
       // Lakukan request POST ke endpoint signup
-      const response = await fetch("http://localhost:8080/regis", {
+      const response = await fetch("https://asia-southeast2-awangga.cloudfunctions.net/bayarin/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -9,7 +9,7 @@ document
     const data = Object.fromEntries(formData);
 
     // Melakukan permintaan POST ke endpoint login
-    const response = await fetch("http://localhost:8080/login", {
+    const response = await fetch("https://asia-southeast2-awangga.cloudfunctions.net/bayarin/auth/log-in", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
