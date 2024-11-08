@@ -1,3 +1,8 @@
+import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
+import {addCSS} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.9/element.js";
+
+addCSS("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css");
+
 // Harga satuan produk
 let unitPrice = 80000;
 const insuranceCost = 600;
@@ -71,8 +76,11 @@ function confirmPayment() {
     "Apakah Anda yakin ingin melanjutkan ke pembayaran?"
   );
   if (confirmation) {
-    alert("Pembayaran berhasil diproses!");
-    // Tambahkan logika untuk proses pembayaran di sini
+    Swal.fire({
+      icon: "error",
+      title: "Testing",
+      text: "Hi, from JSCroot",
+    });
   }
 }
 
