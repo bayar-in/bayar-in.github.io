@@ -102,19 +102,30 @@ document.addEventListener("DOMContentLoaded", () => {
 document.getElementById('tombolkonfir').addEventListener('click', confirmPayment);
 
 function confirmPayment() {
-  const confirmation = confirm("Apakah Anda yakin ingin melanjutkan ke pembayaran?");
-  
-  if (confirmation) {
-    Swal.fire({
-      icon: 'success',
-      title: 'Pembayaran Berhasil!',
-      text: 'Pembayaran berhasil diproses!',
-    });
-  } else {
-    Swal.fire({
-      icon: 'info',
-      title: 'Pembayaran Dibatalkan',
-      text: 'Anda membatalkan proses pembayaran.',
-    });
-  }
+  // Gunakan SweetAlert2 untuk konfirmasi
+  Swal.fire({
+    title: 'Apakah Anda yakin ingin melanjutkan ke pembayaran?',
+    icon: 'question',  // Ikon pertanyaan
+    showCancelButton: true,  // Tampilkan tombol cancel
+    confirmButtonText: 'Ya, lanjutkan',
+    cancelButtonText: 'Batal',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Jika user memilih 'Ya, lanjutkan'
+      Swal.fire({
+        icon: 'success',
+        title: 'Pembayaran Berhasil!',
+        text: 'Pembayaran berhasil diproses! OKE',
+      });
+      
+      // Tambahkan logika untuk proses pembayaran di sini
+    } else {
+      // Jika user memilih 'Batal'
+      Swal.fire({
+        icon: 'info',
+        title: 'Pembayaran Dibatalkan',
+        text: 'Anda membatalkan proses pembayaran.',
+      });
+    }
+  });
 }
