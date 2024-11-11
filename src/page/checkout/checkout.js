@@ -101,6 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // Konfirmasi pembayaran
 document.getElementById('tombolkonfir').addEventListener('click', confirmPayment);
 
+document.getElementById('tombolkonfir').addEventListener('click', confirmPayment);
+
 function confirmPayment() {
   // Gunakan SweetAlert2 untuk konfirmasi
   Swal.fire({
