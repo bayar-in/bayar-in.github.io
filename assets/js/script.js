@@ -99,17 +99,17 @@ function deleteCookie(name) {
 // Fungsi untuk logout dari aplikasi (hapus sesi di front-end)
 function logout() {
   // Hapus cookies yang relevan (misalnya, token otentikasi)
-  deleteCookie('session_token');
+  deleteCookie('token');
   deleteCookie('user_id'); // Jika ada cookie lain yang perlu dihapus
 
   // Hapus data dari localStorage dan sessionStorage jika ada
-  localStorage.removeItem('auth_token'); // Token yang disimpan di localStorage
-  sessionStorage.removeItem('auth_token'); // Token yang disimpan di sessionStorage
+  localStorage.removeItem('token'); // Token yang disimpan di localStorage
+  sessionStorage.removeItem('token'); // Token yang disimpan di sessionStorage
   localStorage.removeItem('user_data'); // Data pengguna yang disimpan di localStorage
   sessionStorage.removeItem('user_data'); // Data pengguna yang disimpan di sessionStorage
 
   // Alihkan pengguna ke halaman login setelah logout
-  window.location.href = '/login.html'; // Ganti dengan URL halaman login Anda
+  window.location.href = '/index.html'; // Ganti dengan URL halaman login Anda
 }
 
 // Panggil fungsi logout saat tombol logout ditekan
