@@ -1,5 +1,5 @@
 import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
-import {addCSS} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.9/element.js";
+import { addCSS } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.9/element.js";
 
 addCSS("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css");
 // Harga satuan produk
@@ -81,7 +81,7 @@ function updateTotalPrice() {
 //       title: 'Pembayaran Berhasil!',
 //       text: 'Pembayaran berhasil diproses! OKE',
 //     });
-    
+
 //     // Tambahkan logika untuk proses pembayaran di sini
 //   } else {
 //     // Opsional: Menambahkan alert jika user membatalkan pembayaran
@@ -99,34 +99,38 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Konfirmasi pembayaran
-document.getElementById('tombolkonfir').addEventListener('click', confirmPayment);
+document
+  .getElementById("tombolkonfir")
+  .addEventListener("click", confirmPayment);
 
-document.getElementById('tombolkonfir').addEventListener('click', confirmPayment);
+document
+  .getElementById("tombolkonfir")
+  .addEventListener("click", confirmPayment);
 
 function confirmPayment() {
   // Gunakan SweetAlert2 untuk konfirmasi
   Swal.fire({
-    title: 'Apakah Anda yakin ingin melanjutkan ke pembayaran?',
-    icon: 'question',  // Ikon pertanyaan
-    showCancelButton: true,  // Tampilkan tombol cancel
-    confirmButtonText: 'Ya, lanjutkan',
-    cancelButtonText: 'Batal',
+    title: "Apakah Anda yakin ingin melanjutkan ke pembayaran?",
+    icon: "question", // Ikon pertanyaan
+    showCancelButton: true, // Tampilkan tombol cancel
+    confirmButtonText: "Ya, lanjutkan",
+    cancelButtonText: "Batal",
   }).then((result) => {
     if (result.isConfirmed) {
       // Jika user memilih 'Ya, lanjutkan'
       Swal.fire({
-        icon: 'success',
-        title: 'Pembayaran Berhasil!',
-        text: 'Pembayaran berhasil diproses! OKE',
+        icon: "success",
+        title: "Pembayaran Berhasil!",
+        text: "Pembayaran berhasil diproses! OKE",
       });
-      
+
       // Tambahkan logika untuk proses pembayaran di sini
     } else {
       // Jika user memilih 'Batal'
       Swal.fire({
-        icon: 'info',
-        title: 'Pembayaran Dibatalkan',
-        text: 'Anda membatalkan proses pembayaran.',
+        icon: "info",
+        title: "Pembayaran Dibatalkan",
+        text: "Anda membatalkan proses pembayaran.",
       });
     }
   });
