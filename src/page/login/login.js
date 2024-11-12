@@ -8,13 +8,16 @@ document
     const formData = new FormData(this);
     const data = Object.fromEntries(formData);
 
-    const response = await fetch("https://asia-southeast2-awangga.cloudfunctions.net/bayarin/auth/log-in", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://asia-southeast2-awangga.cloudfunctions.net/bayarin/auth/log-in",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     const responseData = await response.json();
 
@@ -30,6 +33,27 @@ document
     }
   });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const signInBtn = document.getElementById("sign-in-btn");
+
+  if (localStorage.getItem("isLoggedIn") === "true") {
+ 
+    signInBtn.textContent = "Log out";
+    signInBtn.href = "#"; 
+    signInBtn.addEventListener("click", logout);
+  } else {
+
+    signInBtn.href = "/src/page/login/login.html";
+  }
+});
+
+function logout() {
+  // Hapus status login dan token dari localStorage
+  localStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("token");
+  // Refresh halaman agar tombol kembali ke kondisi "Sign in"
+  location.reload();
+}
 
 // document.querySelector(".login-form").addEventListener("submit", async function (event) {
 //     event.preventDefault();
