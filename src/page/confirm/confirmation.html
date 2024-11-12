@@ -52,24 +52,5 @@
       </button>
     </div>
     <script src="confirmation.js"></script>
-    <script>
-      // Mengambil data dari Local Storage
-      const totalProductPrice = localStorage.getItem("totalProductPrice");
-      const shippingCost = localStorage.getItem("shippingCost");
-      const totalPrice = localStorage.getItem("totalPrice");
-      const quantity = localStorage.getItem("quantity");
-
-      // Memperbarui elemen di halaman dengan data dari Local Storage
-      document.getElementById(
-        "confirm-total-product-price"
-      ).innerText = `Rp${parseInt(totalProductPrice).toLocaleString("id-ID")}`;
-      document.getElementById(
-        "confirm-shipping-cost"
-      ).innerText = `Rp${parseInt(shippingCost).toLocaleString("id-ID")}`;
-      document.getElementById("confirm-total-price").innerText = `Rp${parseInt(
-        totalPrice
-      ).toLocaleString("id-ID")}`;
-      document.getElementById("confirm-quantity").innerText = quantity;
-    </script>
   </body>
 </html>
