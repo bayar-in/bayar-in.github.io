@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generate QRIS with Dana API</title>
-  <link rel="stylesheet" href="danapi.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Generate QRIS - Payment</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate QRIS with Dana API</title>
+    <link rel="stylesheet" href="danapi.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Generate QRIS - Payment</h1>
 
-    <!-- Form untuk memasukkan data transaksi -->
-    <form id="payment-form">
-      <label for="amount">Amount (IDR):</label>
-      <input type="number" id="amount" name="amount" required>
+      <!-- Form untuk memasukkan data transaksi -->
+      <form id="payment-form">
+        <label for="amount">Amount (IDR):</label>
+        <input type="number" id="amount" name="amount" required />
 
-      <label for="referenceNo">Partner Reference No:</label>
-      <input type="text" id="referenceNo" name="partnerReferenceNo" required>
+        <label for="referenceNo">Partner Reference No:</label>
+        <input
+          type="text"
+          id="referenceNo"
+          name="partnerReferenceNo"
+          required
+        />
 
-      <button type="submit">Generate QR Code</button>
-    </form>
+        <button type="submit">Generate QR Code</button>
+      </form>
 
-    <!-- Area untuk menampilkan QR Code -->
-    <div id="qris-container">
-      <h2>QR Code:</h2>
-      <img id="qris-image" src="" alt="QR Code" />
+      <!-- Area untuk menampilkan QR Code -->
+      <div id="qris-container">
+        <h2>QR Code:</h2>
+        <img id="qris-image" src="" alt="QR Code" />
+      </div>
     </div>
-  </div>
 
-  <script src="danapi.js"></script>
-</body>
+    <script src="danapi.js"></script>
+  </body>
 </html>

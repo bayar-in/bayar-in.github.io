@@ -59,10 +59,22 @@
         padding: 5px 10px;
         font-size: 0.8rem;
       }
-      .badge-primary { background-color: #17a2b8; color: white; }
-      .badge-social { background-color: #6f42c1; color: white; }
-      .badge-work { background-color: #fd7e14; color: white; }
-      .badge-friends { background-color: #e83e8c; color: white; }
+      .badge-primary {
+        background-color: #17a2b8;
+        color: white;
+      }
+      .badge-social {
+        background-color: #6f42c1;
+        color: white;
+      }
+      .badge-work {
+        background-color: #fd7e14;
+        color: white;
+      }
+      .badge-friends {
+        background-color: #e83e8c;
+        color: white;
+      }
     </style>
   </head>
   <body>
@@ -70,45 +82,45 @@
       <div class="row">
         <!-- Sidebar -->
         <div class="col-md-2 sidebar p-3">
-            <h3>Go<span class="text-dark">Biz</span></h3>
-            <ul class="nav flex-column gap-2">
-              <li class="nav-item">
-                <a class="nav-link" href="./dashboard.html">
-                  <i class="bi bi-speedometer2"></i> Dashboard
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./stock_produk.html ">
-                  <i class="bi bi-grid"></i> Products
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <i class="bi bi-heart"></i> Favorites
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="./inbox.html">
-                  <i class="bi bi-chat-dots"></i> Inbox
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./order_list.html">
-                  <i class="bi bi-list-check"></i> Order Lists
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./product.html">
-                  <i class="bi bi-box-seam"></i> Product Stock
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./settings.html">
-                  <i class="bi bi-gear"></i> Setting
-                </a>
-              </li>
-            </ul>
-          </div>
+          <h3>Go<span class="text-dark">Biz</span></h3>
+          <ul class="nav flex-column gap-2">
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard.html">
+                <i class="bi bi-speedometer2"></i> Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./stock_produk.html ">
+                <i class="bi bi-grid"></i> Products
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="bi bi-heart"></i> Favorites
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./inbox.html">
+                <i class="bi bi-chat-dots"></i> Inbox
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./order_list.html">
+                <i class="bi bi-list-check"></i> Order Lists
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./product.html">
+                <i class="bi bi-box-seam"></i> Product Stock
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./settings.html">
+                <i class="bi bi-gear"></i> Setting
+              </a>
+            </li>
+          </ul>
+        </div>
 
         <!-- Inbox content -->
         <div class="col-md-10 p-4">
@@ -116,10 +128,18 @@
 
           <!-- Toolbar -->
           <div class="inbox-toolbar">
-            <input type="text" class="form-control search-bar" placeholder="Search mail">
+            <input
+              type="text"
+              class="form-control search-bar"
+              placeholder="Search mail"
+            />
             <div>
-              <button class="btn btn-light"><i class="bi bi-sliders"></i></button>
-              <button class="btn btn-light"><i class="bi bi-info-circle"></i></button>
+              <button class="btn btn-light">
+                <i class="bi bi-sliders"></i>
+              </button>
+              <button class="btn btn-light">
+                <i class="bi bi-info-circle"></i>
+              </button>
               <button class="btn btn-light"><i class="bi bi-trash"></i></button>
             </div>
           </div>
@@ -128,7 +148,7 @@
           <table class="table inbox-table">
             <tbody>
               <tr>
-                <td><input type="checkbox"></td>
+                <td><input type="checkbox" /></td>
                 <td><i class="bi bi-star"></i></td>
                 <td>Jullu Jalal</td>
                 <td><span class="badge badge-primary">Primary</span></td>
@@ -136,7 +156,7 @@
                 <td class="text-end">8:38 AM</td>
               </tr>
               <tr>
-                <td><input type="checkbox"></td>
+                <td><input type="checkbox" /></td>
                 <td><i class="bi bi-star"></i></td>
                 <td>Minerva Barnett</td>
                 <td><span class="badge badge-work">Work</span></td>
@@ -144,7 +164,7 @@
                 <td class="text-end">8:13 AM</td>
               </tr>
               <tr>
-                <td><input type="checkbox"></td>
+                <td><input type="checkbox" /></td>
                 <td><i class="bi bi-star"></i></td>
                 <td>Minerva Barnett</td>
                 <td><span class="badge badge-work">Work</span></td>
@@ -152,7 +172,7 @@
                 <td class="text-end">8:13 AM</td>
               </tr>
               <tr>
-                <td><input type="checkbox"></td>
+                <td><input type="checkbox" /></td>
                 <td><i class="bi bi-star"></i></td>
                 <td>Peter Lewis</td>
                 <td><span class="badge badge-friends">Friends</span></td>
@@ -160,7 +180,7 @@
                 <td class="text-end">7:52 PM</td>
               </tr>
               <tr>
-                <td><input type="checkbox"></td>
+                <td><input type="checkbox" /></td>
                 <td><i class="bi bi-star"></i></td>
                 <td>Minerva Barnett</td>
                 <td><span class="badge badge-work">Work</span></td>
@@ -168,7 +188,7 @@
                 <td class="text-end">8:13 AM</td>
               </tr>
               <tr>
-                <td><input type="checkbox"></td>
+                <td><input type="checkbox" /></td>
                 <td><i class="bi bi-star"></i></td>
                 <td>Minerva Barnett</td>
                 <td><span class="badge badge-work">Work</span></td>

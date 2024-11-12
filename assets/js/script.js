@@ -89,11 +89,29 @@ document.querySelectorAll(".faq-question").forEach((item) => {
   });
 });
 
-
 // logout.js
 
 // Fungsi untuk menghapus cookie berdasarkan nama
 function deleteCookie(name) {
-  document.cookie = name + '=; Max-Age=0; path=/; domain=' + window.location.hostname;
+  document.cookie =
+    name + "=; Max-Age=0; path=/; domain=" + window.location.hostname;
 }
 
+// Fungsi untuk logout dari aplikasi (hapus sesi di front-end)
+function logout() {
+  // Hapus cookies yang relevan (misalnya, token otentikasi)
+  deleteCookie("session_token");
+  deleteCookie("user_id"); // Jika ada cookie lain yang perlu dihapus
+
+  // Hapus data dari localStorage dan sessionStorage jika ada
+  localStorage.removeItem("auth_token"); // Token yang disimpan di localStorage
+  sessionStorage.removeItem("auth_token"); // Token yang disimpan di sessionStorage
+  localStorage.removeItem("user_data"); // Data pengguna yang disimpan di localStorage
+  sessionStorage.removeItem("user_data"); // Data pengguna yang disimpan di sessionStorage
+
+  // Alihkan pengguna ke halaman login setelah logout
+  window.location.href = "/login.html"; // Ganti dengan URL halaman login Anda
+}
+
+// Panggil fungsi logout saat tombol logout ditekan
+document.getElementById("profile-section").addEventListener("click", logout);
