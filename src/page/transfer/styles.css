@@ -1,0 +1,62 @@
+/* Gaya umum untuk halaman */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.info-section {
+    flex: 1;
+    color: white;
+}
+
+.form-section {
+    flex: 1;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.button-primary {
+    background-color: #00d0c1;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+}
