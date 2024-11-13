@@ -1,4 +1,5 @@
 {
-    "transaksi": []
-  }
-  
+    "sendAmount": 1000,
+    "receiverCountry": "US",
+    "deliveryType": "bank"
+}
