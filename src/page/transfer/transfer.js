@@ -1,4 +1,3 @@
-// Menunggu hingga halaman sepenuhnya dimuat sebelum menambahkan event listener
 document.addEventListener('DOMContentLoaded', function () {
 
     // Menangani event submit pada form kirim uang
@@ -6,18 +5,24 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault(); // Mencegah form disubmit secara default
 
         // Mengambil nilai dari form
+        const senderName = document.getElementById('senderName').value;
+        const senderEmail = document.getElementById('senderEmail').value;
+        const senderPhone = document.getElementById('senderPhone').value;
         const sendAmount = document.getElementById('sendAmount').value;
         const receiverCountry = document.getElementById('receiverCountry').value;
         const deliveryType = document.getElementById('deliveryType').value;
 
         // Validasi form, pastikan semua field sudah diisi
-        if (!sendAmount || !receiverCountry || !deliveryType) {
+        if (!senderName || !senderEmail || !senderPhone || !sendAmount || !receiverCountry || !deliveryType) {
             alert('Harap lengkapi semua data.');
             return; // Jika ada field yang kosong, hentikan eksekusi
         }
 
         // Membuat objek data untuk dikirim ke API
         const data = {
+            senderName: senderName,
+            senderEmail: senderEmail,
+            senderPhone: senderPhone,
             sendAmount: sendAmount,
             receiverCountry: receiverCountry,
             deliveryType: deliveryType
