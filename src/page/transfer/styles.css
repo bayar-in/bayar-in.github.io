@@ -12,8 +12,14 @@ body {
     font-family: poppins, sans-serif;
     background-color: var(--primary-color);
     background-image : url('./../../../assets/img/money-trans.jpg');
+    background-size: cover; /* Memastikan gambar mencakup seluruh elemen */
+  background-position: center; /* Memusatkan gambar */
+  background-repeat: no-repeat; /* Menghindari pengulangan gambar */
     margin: 0;
     padding: 0;
+    h2{
+      font-size:40px;
+    }
 }
 
 .container {
@@ -28,7 +34,8 @@ body {
 
 .info-section {
     flex: 1;
-    color: white;
+    color: #f1f1f1;
+
 }
 
 .form-section {
@@ -51,6 +58,7 @@ body {
 
 .form-group label{
   font-weight: 600;
+  color:var(--primary-color);
 }
 
 .form-control {
@@ -160,8 +168,8 @@ body {
 }
 
 .button-secondary {
-    background-color: transparent;
-    color: white;
+    background-color: #f1f1f1f1;
+    color: var(--primary-color);
     padding: 0.5rem 1rem;
     font-size: 1rem;
     border: 1px solid white;
