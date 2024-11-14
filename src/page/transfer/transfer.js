@@ -1,8 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Menangani event submit pada form kirim uang
-  document
-    .getElementById("sendMoneyForm")
-    .addEventListener("submit", function (event) {
+  // Event handler untuk pemilihan bank dengan logo
+  document.querySelectorAll('.bank-option').forEach(button => {
+      button.addEventListener('click', () => {
+          // Menghapus class 'selected' dari semua pilihan bank
+          document.querySelectorAll('.bank-option').forEach(btn => btn.classList.remove('selected'));
+          
+          // Menambahkan class 'selected' ke bank yang dipilih
+          button.classList.add('selected');
+          
+          // Set nilai bank yang dipilih ke input tersembunyi
+          document.getElementById('selectedBank').value = button.getAttribute('data-bank');
+      });
+  });
+
+  // Event handler untuk form submit
+  document.getElementById("sendMoneyForm").addEventListener("submit", function (event) {
       event.preventDefault(); // Mencegah form disubmit secara default
 
       // Mengambil nilai dari form
@@ -10,51 +22,41 @@ document.addEventListener("DOMContentLoaded", function () {
       const senderEmail = document.getElementById("senderEmail").value;
       const senderPhone = document.getElementById("senderPhone").value;
       const sendAmount = document.getElementById("sendAmount").value;
-      const receiverCountry = document.getElementById("receiverCountry").value;
+      const selectedBank = document.getElementById("selectedBank").value;
       const deliveryType = document.getElementById("deliveryType").value;
 
       // Validasi form, pastikan semua field sudah diisi
-      if (
-        !senderName ||
-        !senderEmail ||
-        !senderPhone ||
-        !sendAmount ||
-        !receiverCountry ||
-        !deliveryType
-      ) {
-        alert("Harap lengkapi semua data.");
-        return; // Jika ada field yang kosong, hentikan eksekusi
+      if (!senderName || !senderEmail || !senderPhone || !sendAmount || !selectedBank || !deliveryType) {
+          alert("Harap lengkapi semua data.");
+          return;
       }
 
       // Membuat objek data untuk dikirim ke API
       const data = {
-        senderName: senderName,
-        senderEmail: senderEmail,
-        senderPhone: senderPhone,
-        sendAmount: sendAmount,
-        receiverCountry: receiverCountry,
-        deliveryType: deliveryType,
+          senderName: senderName,
+          senderEmail: senderEmail,
+          senderPhone: senderPhone,
+          sendAmount: sendAmount,
+          bankSelect: selectedBank,
+          deliveryType: deliveryType,
       };
 
       // Mengirim data ke API menggunakan Fetch
       fetch("https://6734ee1b5995834c8a916658.mockapi.io/api/v1/transfer", {
-        method: "POST", // Menggunakan metode POST untuk mengirim data
-        headers: {
-          "Content-Type": "application/json", // Mengirim data dalam format JSON
-        },
-        body: JSON.stringify(data), // Mengkonversi data objek menjadi string JSON
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
       })
-        .then((response) => response.json()) // Menangani respons API yang datang dalam format JSON
-        .then((data) => {
-          // Jika transaksi berhasil, tampilkan notifikasi dengan data yang diterima
+      .then((response) => response.json())
+      .then((data) => {
           alert("Transaksi berhasil: " + JSON.stringify(data));
-
           document.getElementById("sendMoneyForm").reset();
-        })
-        .catch((error) => {
-          // Menangani jika ada kesalahan dalam pengiriman data ke API
+      })
+      .catch((error) => {
           console.error("Terjadi kesalahan:", error);
           alert("Terjadi kesalahan, coba lagi.");
-        });
-    });
+      });
+  });
 });
