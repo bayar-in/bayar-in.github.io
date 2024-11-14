@@ -1,73 +1,113 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kirim Duit</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <!-- Bagian Kiri: Info -->
-        <div class="info-section">
-            <h1>Kirim Uang Kapan Saja, Di Mana Saja Gratis</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <button class="button-secondary">Pelajari Lebih Lanjut</button>
-        </div>
-    
-        <!-- Bagian Kanan: Form Kirim Uang -->
-        <div class="form-section">
-            <h2>Kirim Uang</h2>
-            <form id="sendMoneyForm">
-                <div class="form-group">
-                    <label for="senderName">Nama Penerima</label>
-                    <input type="text" id="senderName" class="form-control" placeholder="Masukkan nama penerima" required>
-                </div>
+      <!-- Bagian Kiri: Info -->
+      <div class="info-section">
+        <h1>Kirim Uang Kapan Saja, Di Mana Saja Gratis</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <button class="button-secondary">Pelajari Lebih Lanjut</button>
+      </div>
 
-                <div class="form-group">
-                    <label for="senderEmail">Email Penerima</label>
-                    <input type="email" id="senderEmail" class="form-control" placeholder="Masukkan email penerima" required>
-                </div>
+      <!-- Bagian Kanan: Form Kirim Uang -->
+      <div class="form-section">
+        <h2>Kirim Uang</h2>
+        <form id="sendMoneyForm">
+          <div class="form-group">
+            <label for="senderName">Nama Penerima</label>
+            <input
+              type="text"
+              id="senderName"
+              class="form-control"
+              placeholder="Masukkan nama penerima"
+              required/>
+          </div>
 
-                <div class="form-group">
-                    <label for="senderPhone">Nomor HP Penerima</label>
-                    <input type="tel" id="senderPhone" class="form-control" placeholder="Masukkan nomor HP penerima" required>
-                </div>
+          <div class="form-group">
+            <label for="senderEmail">Email Penerima</label>
+            <input
+              type="email"
+              id="senderEmail"
+              class="form-control"
+              placeholder="Masukkan email penerima"
+              required
+            />
+          </div>
 
-                <div class="form-group">
-                    <label for="sendAmount">Jumlah Kirim</label>
-                    <input type="number" id="sendAmount" class="form-control" placeholder="Masukkan jumlah" required>
-                </div>
-    
-                <div class="form-group">
-                    <label for="receiverCountry">Negara Penerima</label>
-                    <select id="receiverCountry" class="form-control" required>
-                        <option value="">Pilih </option>
-                        <option value="US">Amerika Serikat</option>
-                        <option value="CA">Kanada</option>
-                        <option value="GB">Inggris</option>
-                        <option value="ID">Indonesia</option>
-                    </select>
-                </div>
-    
-                <div class="form-group">
-                    <label for="deliveryType">Tipe Pengiriman</label>
-                    <select id="deliveryType" class="form-control" required>
-                        <option value="">Pilih Tipe Pengiriman</option>
-                        <option value="bank">Transfer Bank</option>
-                        <option value="wallet">Dompet Digital</option>
-                    </select>
-                </div>
-    
-                <button type="submit" class="button-primary">Lanjutkan Transaksi</button>
-                <p>Dengan menekan lanjutkan, saya setuju dengan <a href="#">Syarat & Kebijakan</a></p>
-            </form>
-        </div>
+          <div class="form-group">
+            <label for="senderPhone">Nomor HP Penerima</label>
+            <input
+              type="tel"
+              id="senderPhone"
+              class="form-control"
+              placeholder="Masukkan nomor HP penerima"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="sendAmount">Jumlah Kirim</label>
+            <input
+              type="number"
+              id="sendAmount"
+              class="form-control"
+              placeholder="Masukkan jumlah"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Pilih Bank</label>
+            <div class="bank-options">
+              <button type="button" class="bank-option" data-bank="BRI">
+                <img src="./../../../assets/img/bri.png" alt="Bank BRI" />
+              </button>
+              <button type="button" class="bank-option" data-bank="BCA">
+                <img src="./../../../assets/img/bca.png" alt="Bank BCA" />
+              </button>
+              <button type="button" class="bank-option" data-bank="Mandiri">
+                <img src="./../../../assets/img/mandiri.png" alt="Bank Mandiri" />
+              </button>
+              <button type="button" class="bank-option" data-bank="BJB">
+                <img src="./../../../assets/img/bni.png" alt="Bank BJB" />
+              </button>
+              <button type="button" class="bank-option" data-bank="DANA">
+                <img src="./../../../assets/img/dana.jpg" alt="DANA" />
+              </button>
+            </div>
+          </div>
+          <input type="hidden" id="selectedBank" name="selectedBank" required />
+
+          <div class="form-group">
+            <label for="deliveryType">Tipe Pengiriman</label>
+            <select id="deliveryType" class="form-control" required>
+              <option value="">Pilih Tipe Pengiriman</option>
+              <option value="bank">Transfer Bank</option>
+              <option value="wallet">Dompet Digital</option>
+            </select>
+          </div>
+
+          <button type="submit" class="button-primary">
+            Lanjutkan Transaksi
+          </button>
+          <p>
+            Dengan menekan lanjutkan, saya setuju dengan
+            <a href="#">Syarat & Kebijakan</a>
+          </p>
+        </form>
+      </div>
     </div>
-    
 
-<script src="transfer.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/jscroot/lib/dist/jscroot.min.js"></script>
-</body>
+    <script src="transfer.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jscroot/lib/dist/jscroot.min.js"></script>
+  </body>
 </html>
