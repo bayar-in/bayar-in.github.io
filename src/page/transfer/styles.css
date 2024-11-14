@@ -21,7 +21,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: auto;
     
 }
@@ -41,6 +41,16 @@ body {
 
 .form-group {
     margin-bottom: 1.5rem;
+
+    p{
+    font-style:italic;
+    margin:0;
+    color:gray;
+    }
+}
+
+.form-group label{
+  font-weight: 600;
 }
 
 .form-control {
@@ -76,7 +86,7 @@ body {
   font-family: "Google Sans",Roboto,Arial,sans-serif;
   font-size: 14px;
   font-weight: 500;
-  height: 48px;
+  height:49px;
   justify-content: center;
   letter-spacing: .25px;
   line-height: normal;
@@ -157,4 +167,57 @@ body {
     border: 1px solid white;
     border-radius: 5px;
     cursor: pointer;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column; /* Atur tata letak menjadi kolom */
+      padding: 1rem;
+  }
+
+  .info-section {
+      text-align: center;
+      margin-bottom: 1.5rem;
+  }
+
+  .form-section {
+      padding: 1.5rem;
+      box-shadow: none; /* Hilangkan shadow untuk tampilan yang lebih bersih */
+  }
+
+  .form-group label {
+      font-size: 0.9rem; /* Kecilkan ukuran font label */
+  }
+
+  .form-control {
+      font-size: 0.9rem; /* Sesuaikan ukuran font form control */
+      padding: 0.6rem;
+  }
+
+  .bank-options {
+      display: flex;
+      flex-wrap: wrap; /* Membuat opsi bank teratur secara wrap */
+      gap: 0.5rem;
+      justify-content: center; /* Rata tengah opsi bank */
+  }
+
+  .bank-option img {
+      width: 40px; /* Sesuaikan ukuran logo bank */
+      height: auto;
+  }
+
+  .button-primary {
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem; /* Sesuaikan padding tombol */
+  }
+
+  .button-secondary {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+  }
+
+  h1, h2 {
+      font-size: 1.5rem; /* Sesuaikan ukuran heading */
+  }
 }

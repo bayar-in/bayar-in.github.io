@@ -29,7 +29,10 @@
               id="senderName"
               class="form-control"
               placeholder="Masukkan nama penerima"
-              required/>
+              required
+            />
+            
+
           </div>
 
           <div class="form-group">
@@ -44,18 +47,20 @@
           </div>
 
           <div class="form-group">
-            <label for="senderPhone">Nomor HP Penerima</label>
+            <label for="senderPhoneorrekening">Nomor HP/Nomor Rekening</label>
             <input
               type="tel"
-              id="senderPhone"
+              id="senderPhoneorrekening"
               class="form-control"
-              placeholder="Masukkan nomor HP penerima"
+              placeholder="Masukkan nomor atau nomor rekening"
               required
             />
+            <p>Minimal transfer Rp10.000</p>
           </div>
+          
 
           <div class="form-group">
-            <label for="sendAmount">Jumlah Kirim</label>
+            <label for="sendAmount">Nominal</label>
             <input
               type="number"
               id="sendAmount"
@@ -75,7 +80,10 @@
                 <img src="./../../../assets/img/bca.png" alt="Bank BCA" />
               </button>
               <button type="button" class="bank-option" data-bank="Mandiri">
-                <img src="./../../../assets/img/mandiri.png" alt="Bank Mandiri" />
+                <img
+                  src="./../../../assets/img/mandiri.png"
+                  alt="Bank Mandiri"
+                />
               </button>
               <button type="button" class="bank-option" data-bank="BNI">
                 <img src="./../../../assets/img/bni.png" alt="Bank BNI" />
