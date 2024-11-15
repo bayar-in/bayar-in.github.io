@@ -20,13 +20,13 @@ document.addEventListener("DOMContentLoaded", function () {
       // Mengambil nilai dari form
       const senderName = document.getElementById("senderName").value;
       const senderEmail = document.getElementById("senderEmail").value;
-      const senderPhone = document.getElementById("senderPhone").value;
+      const senderPhone = document.getElementById("senderPhoneorrekening").value;
       const sendAmount = document.getElementById("sendAmount").value;
       const selectedBank = document.getElementById("selectedBank").value;
       const deliveryType = document.getElementById("deliveryType").value;
 
       // Validasi form, pastikan semua field sudah diisi
-      if (!senderName || !senderEmail || !senderPhone || !sendAmount || !selectedBank || !deliveryType) {
+      if (!senderName || !senderEmail || !senderPhoneorrekening || !sendAmount || !selectedBank || !deliveryType) {
           alert("Harap lengkapi semua data.");
           return;
       }
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const data = {
           senderName: senderName,
           senderEmail: senderEmail,
-          senderPhone: senderPhone,
+          senderPhone: senderPhoneorrekening,
           sendAmount: sendAmount,
           bankSelect: selectedBank,
           deliveryType: deliveryType,
