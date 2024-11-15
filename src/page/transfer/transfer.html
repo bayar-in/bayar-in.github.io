@@ -31,8 +31,6 @@
               placeholder="Masukkan nama penerima"
               required
             />
-            
-
           </div>
 
           <div class="form-group">
@@ -55,9 +53,7 @@
               placeholder="Masukkan nomor atau nomor rekening"
               required
             />
-          
           </div>
-          
 
           <div class="form-group">
             <label for="sendAmount">Nominal</label>
@@ -68,7 +64,15 @@
               placeholder="Masukkan jumlah"
               required
             />
-            <p>Minimal transfer Rp10.000</p>
+          </div>
+
+          <div class="form-group">
+            <label for="deliveryType">Tipe Pengiriman</label>
+            <select id="deliveryType" class="form-control" required>
+              <option value="">Pilih Tipe Pengiriman</option>
+              <option value="bank">Transfer Bank</option>
+              <option value="wallet">Dompet Digital</option>
+            </select>
           </div>
 
           <div class="form-group">
@@ -93,7 +97,10 @@
                 <img src="./../../../assets/img/dana.png" alt="DANA" />
               </button>
               <button type="button" class="bank-option" data-bank="shopeepay">
-                <img src="./../../../assets/img/shopeepay.png" alt="ShopeePay" />
+                <img
+                  src="./../../../assets/img/shopeepay.png"
+                  alt="ShopeePay"
+                />
               </button>
               <button type="button" class="bank-option" data-bank="DANA">
                 <img src="./../../../assets/img/gpay.png" alt="DANA" />
@@ -101,15 +108,6 @@
             </div>
           </div>
           <input type="hidden" id="selectedBank" name="selectedBank" required />
-
-          <div class="form-group">
-            <label for="deliveryType">Tipe Pengiriman</label>
-            <select id="deliveryType" class="form-control" required>
-              <option value="">Pilih Tipe Pengiriman</option>
-              <option value="bank">Transfer Bank</option>
-              <option value="wallet">Dompet Digital</option>
-            </select>
-          </div>
 
           <button type="submit" class="button-primary">
             Lanjutkan Transaksi
