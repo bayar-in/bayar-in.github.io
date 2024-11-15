@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Mengambil nilai dari form
       const senderName = document.getElementById("senderName").value;
       const senderEmail = document.getElementById("senderEmail").value;
-      const senderPhone = document.getElementById("senderPhoneorrekening").value;
+      const senderPhoneorrekening = document.getElementById("senderPhoneorrekening").value;
       const sendAmount = document.getElementById("sendAmount").value;
       const selectedBank = document.getElementById("selectedBank").value;
       const deliveryType = document.getElementById("deliveryType").value;
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const data = {
           senderName: senderName,
           senderEmail: senderEmail,
-          senderPhone: senderPhoneorrekening,
+          senderPhoneorrekening: senderPhoneorrekening,
           sendAmount: sendAmount,
           bankSelect: selectedBank,
           deliveryType: deliveryType,
