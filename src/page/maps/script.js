@@ -9,9 +9,10 @@ import { Style, Stroke, Icon, Fill } from "https://cdn.skypack.dev/ol/style.js";
 import Point from "https://cdn.skypack.dev/ol/geom/Point.js";
 import Feature from "https://cdn.skypack.dev/ol/Feature.js";
 import GeoJSON from "https://cdn.skypack.dev/ol/format/GeoJSON.js";
-import { defaults as defaultControls } from "https://cdn.skypack.dev/ol/control.js";    
+import { defaults as defaultControls } from "https://cdn.skypack.dev/ol/control.js";
 
-const attributions = '<a href="https://petapedia.github.io/" target="_blank">© PetaPedia</a>';
+const attributions =
+  '<a href="https://petapedia.github.io/" target="_blank">© PetaPedia</a>';
 const defaultCoordinates = [107.57634352477324, -6.87436891415509];
 
 // Layer dasar
@@ -25,11 +26,21 @@ const markerLayer = new VectorLayer({
   source: markerSource,
   style: new Style({
     image: new Icon({
-      src: "data:image/svg+xml;charset=utf-8," +
+      src:
+        "data:image/svg+xml;charset=utf-8," +
         encodeURIComponent(
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-          <path fill="red" d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 10.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-        </svg>),
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="red"
+              d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 10.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+            />
+          </svg>
+        ),
       scale: 1,
       anchor: [0.5, 1],
     }),
@@ -55,7 +66,6 @@ const map = new Map({
     zoom: 16,
   }),
 });
-    
 
 // Variabel untuk menyimpan koordinat terakhir
 let clickedCoordinates = null;
