@@ -45,9 +45,9 @@
   background-color: var(--primary-color);
   border-radius: 10px;
   transition: ease-in-out 0.2s;
-  position:absolute;
-  bottom:43vh;
-  left:22vh;
+  position: absolute;
+  bottom: 43vh;
+  left: 22vh;
 }
 
 .btn_toggle:hover {
@@ -78,8 +78,6 @@ button {
   cursor: pointer;
 }
 
-
-
 .hitung {
   color: var(--primary-color);
   background-color: white;
@@ -103,25 +101,85 @@ input {
 
 #toggle-content {
   transition: all 0.3s ease-in-out;
-  position:absolute;
-  bottom:26vh;
-  left:75vh;
+  position: absolute;
+  bottom: 26vh;
+  left: 75vh;
 }
 
-/* Status awal (tersembunyi) */
 .hidden {
   opacity: 0;
-  transform: translateY(-20px); /* Geser elemen ke atas */
-  pointer-events: none; /* Nonaktifkan interaksi */
+  transform: translateY(-20px);
+  pointer-events: none;
   height: 0;
   overflow: hidden;
   transition: all 0.5s ease-in-out;
 }
 
-/* Status muncul (ditampilkan) */
 .visible {
   opacity: 1;
   transform: translateY(0); /* Kembalikan ke posisi normal */
   pointer-events: auto; /* Aktifkan interaksi */
   height: auto;
+}
+
+@media (max-width: 768px) {
+  .head {
+    padding: 20px 10px 0px 10px; /* Kurangi padding */
+    text-align: center; /* Teks di tengah */
+  }
+
+  #map {
+    width: 100%; /* Sesuaikan dengan layar */
+    height: 60vh; /* Kurangi tinggi peta */
+  }
+
+  .btn_toggle {
+    bottom: 15vh; /* Sesuaikan posisi tombol toggle */
+    left: 5vh;
+  }
+
+  #toggle-content {
+    bottom: 10vh; /* Sesuaikan posisi elemen toggle */
+    left: 5vh; /* Posisikan di tengah layar */
+    width: calc(100% - 20px); /* Sesuaikan lebar elemen toggle */
+  }
+
+  .col-lg-8,
+  .col-lg-4 {
+    flex: 0 0 100%; /* Kolom menjadi 100% lebar layar */
+    max-width: 100%;
+  }
+
+  .auth-buttons a {
+    font-size: 14px; /* Kecilkan ukuran font tombol login/logout */
+    margin: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  #map {
+    height: 50vh; /* Kurangi tinggi peta lebih jauh */
+  }
+
+  .btn_toggle {
+    bottom: 10vh;
+    left: 10px;
+    width: calc(100% - 20px); /* Tombol memenuhi layar */
+    text-align: center;
+  }
+
+  #toggle-content {
+    bottom: 5vh; /* Posisikan lebih rendah */
+    left: 10px;
+    width: calc(100% - 20px); /* Elemen memenuhi layar */
+  }
+
+  h1,
+  p {
+    font-size: 16px; /* Perkecil ukuran teks */
+  }
+
+  .card {
+    padding: 10px; /* Kurangi padding pada card */
+  }
 }
