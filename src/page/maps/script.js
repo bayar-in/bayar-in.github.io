@@ -9,7 +9,6 @@ import { Style, Stroke, Icon, Fill } from "https://cdn.skypack.dev/ol/style.js";
 import Point from "https://cdn.skypack.dev/ol/geom/Point.js";
 import Feature from "https://cdn.skypack.dev/ol/Feature.js";
 import GeoJSON from "https://cdn.skypack.dev/ol/format/GeoJSON.js";
-import { defaults as defaultControls } from "https://cdn.skypack.dev/ol/control.js";
 
 const attributions =
   '<a href="https://petapedia.github.io/" target="_blank">© PetaPedia</a>';
