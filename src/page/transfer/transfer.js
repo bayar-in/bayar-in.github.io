@@ -1,14 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Daftar endpoint API MockAPI.io untuk masing-masing bank
-  const apiEndpoints = {
-    BRI: "https://673b8d4396b8dcd5f3f6bd6b.mockapi.io/api/v1/bri",
-    BCA: "https://673b8d4396b8dcd5f3f6bd6b.mockapi.io/api/v1/bca",
-    Mandiri: "https://673b8eb296b8dcd5f3f6c28d.mockapi.io/api/v1/mandiri",
-    BNI: "https://673b8eb296b8dcd5f3f6c28d.mockapi.io/api/v1/bni",
-    ShopeePay: "https://673b8f2096b8dcd5f3f6c42d.mockapi.io/api/v1/shopeepay",
-    DANA: "https://673b8f2096b8dcd5f3f6c42d.mockapi.io/api/v1/dana",
-  };
+  // Endpoint untuk transaksi
+  const apiTransactionEndpoint =
+    "https://asia-southeast2-awangga.cloudfunctions.net/bayarin/transaction/process";
 
+  // Listener untuk tombol pilihan bank
   document.querySelectorAll(".bank-option").forEach((button) => {
     button.addEventListener("click", () => {
       document
@@ -20,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Submit form
   document
     .getElementById("sendMoneyForm")
     .addEventListener("submit", function (event) {
@@ -46,29 +42,28 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      const apiEndpoint = apiEndpoints[selectedBank];
-      if (!apiEndpoint) {
-        alert("Bank tidak valid.");
-        return;
-      }
-
-      const data = {
-        senderName,
-        senderEmail,
-        senderPhoneorrekening,
-        sendAmount,
-        bankSelect: selectedBank,
-        deliveryType,
+      const requestData = {
+        user_id: senderPhoneorrekening,
+        merchant_id: selectedBank,
+        amount: parseFloat(sendAmount),
+        currency: "IDR",
+        status: "pending",
+        description: `Transfer ke ${selectedBank} melalui ${deliveryType}`,
       };
 
-      fetch(apiEndpoint, {
+      fetch(apiTransactionEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(requestData),
       })
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
         .then((data) => {
           alert("Transaksi berhasil: " + JSON.stringify(data));
           document.getElementById("sendMoneyForm").reset();
