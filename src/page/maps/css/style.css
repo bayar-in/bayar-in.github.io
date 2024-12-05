@@ -1,5 +1,17 @@
+:root {
+  --primary-color: #34a0a4;
+  --secondary-color: #58355e;
+  --teks-color-1: #f9ed5b;
+  --teks-color-2: #acff6c;
+  --teks-color-3: #7ae7c7;
+}
+
 .body_maps {
   margin: 0;
+}
+
+.head {
+  padding: 50px 0px 0px 100px;
 }
 
 #map {
@@ -29,6 +41,18 @@
   font-size: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+.btn_toggle {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  transition: ease-in-out 0.2s;
+  position:absolute;
+  bottom:43vh;
+  left:22vh;
+}
+
+.btn_toggle:hover {
+  background-color: #3fc1c6;
+}
 
 .controls {
   display: flex;
@@ -48,18 +72,56 @@
 button {
   padding: 10px 15px;
   border: none;
-  background-color: #007bff;
+  background-color: var(--primary-color);
   color: white;
   border-radius: 4px;
   cursor: pointer;
 }
 
+
+
+.hitung {
+  color: var(--primary-color);
+  background-color: white;
+  border-radius: 10px 10px 10px 10px;
+  transition: ease-in-out 0.2s;
+}
+
+.hitung:hover {
+  color: #ffffff;
+}
+
 button:hover {
-  background-color: #0056b3;
+  background-color: var(--primary-color);
 }
 
 input {
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
+}
+
+#toggle-content {
+  transition: all 0.3s ease-in-out;
+  position:absolute;
+  bottom:26vh;
+  left:75vh;
+}
+
+/* Status awal (tersembunyi) */
+.hidden {
+  opacity: 0;
+  transform: translateY(-20px); /* Geser elemen ke atas */
+  pointer-events: none; /* Nonaktifkan interaksi */
+  height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+/* Status muncul (ditampilkan) */
+.visible {
+  opacity: 1;
+  transform: translateY(0); /* Kembalikan ke posisi normal */
+  pointer-events: auto; /* Aktifkan interaksi */
+  height: auto;
 }
