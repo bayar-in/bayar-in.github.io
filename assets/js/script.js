@@ -110,7 +110,7 @@ function logout() {
   sessionStorage.removeItem("user_data"); // Data pengguna yang disimpan di sessionStorage
 
   // Alihkan pengguna ke halaman login setelah logout
-  window.location.href = "./../src/page/login/login.html"; // Ganti dengan URL halaman login Anda
+  window.location.href = "./../index.html"; // Ganti dengan URL halaman login Anda
 }
 
 // Panggil fungsi logout saat tombol logout ditekan
