@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#map {
+  width: 100%;
+  height: 90vh;
+}
+
+.ol-zoom {
+  position: absolute;
+  top: 10px; /* Sesuaikan dengan tombol tambahan */
+  right: 10px; /* Pindahkan ke kanan atas */
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Tambahkan jarak antar tombol */
+}
+
+.ol-attribution {
+  position: absolute;
+  bottom: 50px; /* Geser ke atas agar tidak menutupi area bawah */
+  right: 10px; /* Pindahkan ke kanan bawah */
+  background: rgba(255, 255, 255, 0.8); /* Tetap transparan */
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #f4f4f4;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
