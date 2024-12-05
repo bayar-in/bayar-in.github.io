@@ -9,7 +9,7 @@ import { Style, Stroke, Icon, Fill } from "https://cdn.skypack.dev/ol/style.js";
 import Point from "https://cdn.skypack.dev/ol/geom/Point.js";
 import Feature from "https://cdn.skypack.dev/ol/Feature.js";
 import GeoJSON from "https://cdn.skypack.dev/ol/format/GeoJSON.js";
-import { defaults as defaultControls } from "https://cdn.skypack.dev/ol/control.js";
+import { defaults as defaultControls } from "https://cdn.skypack.dev/ol/control.js";    
 
 const attributions = '<a href="https://petapedia.github.io/" target="_blank">© PetaPedia</a>';
 const defaultCoordinates = [107.57634352477324, -6.87436891415509];
@@ -55,6 +55,7 @@ const map = new Map({
     zoom: 16,
   }),
 });
+    
 
 // Variabel untuk menyimpan koordinat terakhir
 let clickedCoordinates = null;
@@ -77,25 +78,30 @@ document.getElementById("searchRegion").addEventListener("click", async () => {
     return;
   }
 
-  try {
-    const response = await fetch('https://asia-southeast2-awangga.cloudfunctions.net/bayarin/data/get/region', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        // 'Authorization': `Bearer ${token}` // Uncomment if using token-based auth
-      }
-    });
+  // Simulasi fetch GeoJSON dari backend
+  const mockGeoJSON = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: {
+          type: "Polygon",
+          coordinates: [
+            [
+              [107.574, -6.872],
+              [107.578, -6.872],
+              [107.578, -6.876],
+              [107.574, -6.876],
+              [107.574, -6.872],
+            ],
+          ],
+        },
+        properties: {},
+      },
+    ],
+  };
 
-    if (!response.ok) {
-      throw new Error('Gagal memuat data region');
-    }
-
-    const geoJSON = await response.json();
-    displayPolygon(geoJSON); // Menampilkan poligon berdasarkan data GeoJSON dari backend
-  } catch (error) {
-    console.error('Terjadi kesalahan:', error);
-    alert('Gagal mengambil data dari server');
-  }
+  displayPolygon(mockGeoJSON);
 });
 
 // Tombol "Tampilkan Jalan"
@@ -106,26 +112,26 @@ document.getElementById("searchRoad").addEventListener("click", async () => {
     return;
   }
 
-  try {
-    const response = await fetch('https://asia-southeast2-awangga.cloudfunctions.net/bayarin/data/get/roads', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        // 'Authorization': `Bearer ${token}` // Uncomment if using token-based auth
+  // Simulasi fetch jalan (dalam bentuk GeoJSON)
+  const mockRoadGeoJSON = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: [
+            [107.574, -6.874],
+            [107.576, -6.875],
+            [107.578, -6.874],
+          ],
+        },
+        properties: {},
       },
-      body: JSON.stringify({ coordinates: clickedCoordinates, maxDistance: maxDistance })
-    });
+    ],
+  };
 
-    if (!response.ok) {
-      throw new Error('Gagal memuat data jalan');
-    }
-
-    const geoJSON = await response.json();
-    displayRoads(geoJSON); // Menampilkan jalan berdasarkan data GeoJSON dari backend
-  } catch (error) {
-    console.error('Terjadi kesalahan:', error);
-    alert('Gagal mengambil data dari server');
-  }
+  displayRoads(mockRoadGeoJSON);
 });
 
 // Fungsi untuk menampilkan poligon
@@ -147,3 +153,4 @@ function displayRoads(geoJSON) {
   polygonSource.clear();
   polygonSource.addFeatures(features);
 }
+
