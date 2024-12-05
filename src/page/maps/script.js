@@ -153,4 +153,3 @@ function displayRoads(geoJSON) {
   polygonSource.clear();
   polygonSource.addFeatures(features);
 }
-
