@@ -96,6 +96,16 @@ nav ul li a:hover {
   pointer-events: auto; /* Enable mouse events when visible */
 }
 
+.auth-buttons {
+  display: flex;
+  align-items: center;
+}
+
+#profile-section {
+  display: none;
+}
+
+
 .auth-buttons a {
   text-decoration: none;
   margin-left: 15px;

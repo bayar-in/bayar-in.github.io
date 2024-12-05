@@ -6,8 +6,8 @@ import {
   
   wauthparam.auth_ws = "d3NzOi8vYXBpLndhLm15LmlkL3dzL3doYXRzYXV0aC9wdWJsaWM=";
   //wauthparam.keyword="aHR0cHM6Ly93YS5tZS82Mjg5NTgwMDAwNjAwMD90ZXh0PXdoNHQ1YXV0aDA=";
-  wauthparam.keyword = "aHR0cHM6Ly93YS5tZS82Mjg4MTAyMjUyMjkyMD90ZXh0PXVrYXN5YWhsb3ZldQ==";
+  wauthparam.keyword = "aHR0cHM6Ly93YS5tZS82Mjg4MTAyMjUyMjkyMD90ZXh0PXdoNHQ1YXV0aDA=";
   wauthparam.tokencookiehourslifetime = 18;
-  wauthparam.redirect = "/auth";
+  wauthparam.redirect = "/index.html";
   deleteCookie(wauthparam.tokencookiename);
   qrController(wauthparam);
