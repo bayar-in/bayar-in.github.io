@@ -105,7 +105,6 @@ nav ul li a:hover {
   display: none;
 }
 
-
 .auth-buttons a {
   text-decoration: none;
   margin-left: 15px;
@@ -455,14 +454,6 @@ nav ul li a:hover {
   color: #777;
 }
 
-@media (max-width: 768px) {
-  .stats {
-    flex-direction: column;
-  }
-  .carousel {
-    flex-direction: column;
-  }
-}
 
 .business-finance-section {
   display: flex;
@@ -781,4 +772,78 @@ footer {
 
 .set .swiper .swiper-wrapper .swiper-slide:hover a {
   display: block;
+}
+
+/* Media Query untuk tampilan Mobile */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+  .hero-text {
+    margin-bottom: 20px;
+  }
+  .hero-text h2 {
+    font-size: 28px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .clients-logos {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .platform-overview .row,
+  .login-expand-section .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-section {
+    padding: 20px;
+  }
+
+  .testimonials-section .carousel {
+    flex-direction: column;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+ 
+  .carousel {
+    flex-direction: column;
+  }
+  .journey-section .container-journey {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-content-explore h2 {
+    font-size: 24px;
+  }
+
+  footer {
+    font-size: 14px;
+  }
 }
