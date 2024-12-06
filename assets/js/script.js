@@ -37,7 +37,7 @@ function logout() {
   localStorage.removeItem("isLoggedIn");
 
   // Alihkan pengguna ke halaman login
-  window.location.href = "/src/page/login/login.html";
+  window.location.href = "/bayar-in.github.io/src/page/login/login.html";
 }
 
 // Pastikan event listener diatur untuk tombol logout
