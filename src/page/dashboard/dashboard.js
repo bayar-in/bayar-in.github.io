@@ -71,9 +71,13 @@ function logout() {
 // Fungsi untuk memeriksa status login
 function checkLoginStatus() {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const isLogIn = cookies.getItem("isLogIn")
 
   // Jika belum login, redirect ke halaman login
   if (isLoggedIn !== "true") {
+    window.location.href = "/bayar-in.github.io/src/page/login/login.html";
+  }
+  if (isLogIn !== "true") {
     window.location.href = "/bayar-in.github.io/src/page/login/login.html";
   }
 }
