@@ -24,7 +24,7 @@ document
     if (response.ok) {
       localStorage.setItem("isLoggedIn", true);
       localStorage.setItem("token", responseData.token);
-      window.location.replace("/index.html");
+      window.location.replace("./../dashboard/dashboard.html");
       alert("Login berhasil");
       console.log(responseData);
     } else {
@@ -33,24 +33,25 @@ document
     }
   });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const signInBtn = document.getElementById("sign-in-btn");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const signInBtn = document.getElementById("sign-in-btn");
 
-  if (localStorage.getItem("isLoggedIn") === "true") {
+//   if (localStorage.getItem("isLoggedIn") === "true") {
  
-    signInBtn.textContent = "Log out";
-    signInBtn.href = "#"; 
-    signInBtn.addEventListener("click", logout);
-  } else {
+//     signInBtn.textContent = "Log out";
+//     signInBtn.href = "#"; 
+//     signInBtn.addEventListener("click", logout);
+//   } else {
 
-    signInBtn.href = "./../dashboard/dashboard.html";
-  }
-});
+//     signInBtn.href = "./../dashboard/dashboard.html";
+//   }
+// });
 
 function logout() {
   // Remove login status and token from localStorage
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("token");
+  window.Cookies.remove("login")
 
   // Clear cookies related to Google Analytics (if necessary)
   document.cookie = '_ga_B66QPE5BY6=; Max-Age=0; path=/; domain=' + window.location.hostname;
