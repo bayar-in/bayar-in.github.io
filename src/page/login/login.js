@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     signInBtn.addEventListener("click", logout);
   } else {
 
-    signInBtn.href = "./../../../index.html";
+    signInBtn.href = "./../dashboard/dashboard.html";
   }
 });
 
