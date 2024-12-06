@@ -24,7 +24,7 @@ document
     if (response.ok) {
       localStorage.setItem("isLoggedIn", true);
       localStorage.setItem("token", responseData.token);
-      window.location.replace("/index.html");
+      window.location.replace("./../dashboard/dashboard.html");
       alert("Login berhasil");
       console.log(responseData);
     } else {
@@ -33,26 +33,34 @@ document
     }
   });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const signInBtn = document.getElementById("sign-in-btn");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const signInBtn = document.getElementById("sign-in-btn");
 
-  if (localStorage.getItem("isLoggedIn") === "true") {
- 
-    signInBtn.textContent = "Log out";
-    signInBtn.href = "#"; 
-    signInBtn.addEventListener("click", logout);
-  } else {
+//   if (localStorage.getItem("isLoggedIn") === "true") {
 
-    signInBtn.href = "./../../../index.html";
-  }
-});
+//     signInBtn.textContent = "Log out";
+//     signInBtn.href = "#";
+//     signInBtn.addEventListener("click", logout);
+//   } else {
+
+//     signInBtn.href = "./../dashboard/dashboard.html";
+//   }
+// });
 
 function logout() {
-  // Hapus status login dan token dari localStorage
+  // Remove login status and token from localStorage
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("token");
-  // Refresh halaman agar tombol kembali ke kondisi "Sign in"
-  location.reload();
+  window.Cookies.remove("login");
+
+  // Clear cookies related to Google Analytics (if necessary)
+  document.cookie =
+    "_ga_B66QPE5BY6=; Max-Age=0; path=/; domain=" + window.location.hostname;
+  document.cookie =
+    "_ga=; Max-Age=0; path=/; domain=" + window.location.hostname;
+
+  // Redirect to index.html after logout
+  window.location.href = "./index.html"; // Redirect to index.html
 }
 
 // document.querySelector(".login-form").addEventListener("submit", async function (event) {

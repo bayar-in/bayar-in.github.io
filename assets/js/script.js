@@ -31,16 +31,37 @@ function login() {
 }
 
 // Fungsi untuk simulasi logout
+// Fungsi untuk logout
 function logout() {
-  // Saat user logout, hapus status login dari localStorage
+  // Hapus status login dari localStorage
   localStorage.removeItem("isLoggedIn");
 
-  // Panggil ulang fungsi untuk memperbarui UI
-  checkLoginStatus();
+  // Alihkan pengguna ke halaman login
+  window.location.href = "/bayar-in.github.io/src/page/login/login.html";
 }
-document.getElementById('profile-section').addEventListener('click', logout);
 
-// Memastikan ketika halaman dimuat, status login diperiksa
+// Pastikan event listener diatur untuk tombol logout
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutButton = document.getElementById("logout-btn");
+  if (logoutButton) {
+    logoutButton.addEventListener("click", logout);
+  }
+});
+
+// Fungsi untuk memeriksa status login
+function checkLoginStatus() {
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  if (isLoggedIn === "true") {
+    document.getElementById("sign-in-btn").style.display = "none";
+    document.getElementById("profile-section").style.display = "block";
+  } else {
+    document.getElementById("sign-in-btn").style.display = "block";
+    document.getElementById("profile-section").style.display = "none";
+  }
+}
+
+// Memastikan status login diperiksa saat halaman dimuat
 window.onload = checkLoginStatus;
 
 // Fungsi untuk menginisialisasi observer
@@ -115,3 +136,10 @@ function logout() {
 
 // Panggil fungsi logout saat tombol logout ditekan
 document.getElementById("profile-section").addEventListener("click", logout);
+
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
+
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+});

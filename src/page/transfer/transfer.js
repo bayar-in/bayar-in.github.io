@@ -1,14 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Daftar endpoint API MockAPI.io untuk masing-masing bank
-  const apiEndpoints = {
-    BRI: "https://673b8d4396b8dcd5f3f6bd6b.mockapi.io/api/v1/bri",
-    BCA: "https://673b8d4396b8dcd5f3f6bd6b.mockapi.io/api/v1/bca",
-    Mandiri: "https://673b8eb296b8dcd5f3f6c28d.mockapi.io/api/v1/mandiri",
-    BNI: "https://673b8eb296b8dcd5f3f6c28d.mockapi.io/api/v1/bni",
-    ShopeePay: "https://673b8f2096b8dcd5f3f6c42d.mockapi.io/api/v1/shopeepay",
-    DANA: "https://673b8f2096b8dcd5f3f6c42d.mockapi.io/api/v1/dana",
-  };
+  // Endpoint untuk transaksi
+  const apiTransactionEndpoint =
+    "https://asia-southeast2-awangga.cloudfunctions.net/bayarin/transaction/process";
 
+  // Listener untuk tombol pilihan bank
   document.querySelectorAll(".bank-option").forEach((button) => {
     button.addEventListener("click", () => {
       document
@@ -20,62 +15,89 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Submit form
   document
     .getElementById("sendMoneyForm")
     .addEventListener("submit", function (event) {
       event.preventDefault();
 
-      const senderName = document.getElementById("senderName").value;
-      const senderEmail = document.getElementById("senderEmail").value;
-      const senderPhoneorrekening = document.getElementById(
-        "senderPhoneorrekening"
-      ).value;
-      const sendAmount = document.getElementById("sendAmount").value;
-      const selectedBank = document.getElementById("selectedBank").value;
-      const deliveryType = document.getElementById("deliveryType").value;
+      // Ambil nilai dari form
+      const senderName = document.getElementById("senderName").value.trim();
+      const senderEmail = document.getElementById("senderEmail").value.trim();
+      const senderPhoneorrekening = document
+        .getElementById("senderPhoneorrekening")
+        .value.trim();
+      const sendAmount = parseFloat(
+        document.getElementById("sendAmount").value.trim()
+      );
+      const selectedBank = document.getElementById("selectedBank").value.trim();
+      const deliveryType = document.getElementById("deliveryType").value.trim();
 
+      // Validasi form
       if (
         !senderName ||
         !senderEmail ||
         !senderPhoneorrekening ||
-        !sendAmount ||
+        isNaN(sendAmount) ||
+        sendAmount <= 0 ||
         !selectedBank ||
         !deliveryType
       ) {
-        alert("Harap lengkapi semua data.");
+        alert("Harap lengkapi semua data dengan benar.");
         return;
       }
 
-      const apiEndpoint = apiEndpoints[selectedBank];
-      if (!apiEndpoint) {
-        alert("Bank tidak valid.");
-        return;
-      }
-
-      const data = {
-        senderName,
-        senderEmail,
-        senderPhoneorrekening,
-        sendAmount,
-        bankSelect: selectedBank,
-        deliveryType,
+      // Peta bank ke merchant_id
+      const merchantIDs = {
+        BRI: "672d353c627d47e285279f32",
+        BCA: "abc123merchantidbca",
+        Mandiri: "mandiriMerchantID",
+        BNI: "bniMerchantID",
+        ShopeePay: "shopeepayMerchantID",
+        DANA: "danaMerchantID",
       };
 
-      fetch(apiEndpoint, {
+      const merchant_id = merchantIDs[selectedBank];
+      if (!merchant_id) {
+        alert("Bank yang dipilih tidak valid.");
+        return;
+      }
+
+      // Siapkan data untuk dikirim
+      const requestData = {
+        user_id: senderPhoneorrekening, // Nomor telepon pengguna sebagai user_id
+        merchant_id: merchant_id, // merchant_id berdasarkan pilihan bank
+        amount: sendAmount,
+        currency: "IDR",
+        status: "pending",
+        description: `Transfer ke ${selectedBank} melalui ${deliveryType}`,
+      };
+
+      // Kirim data ke server
+      fetch(apiTransactionEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(requestData),
       })
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) {
+            return response.json().then((error) => {
+              console.error("Detail error:", error);
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            });
+          }
+          return response.json();
+        })
         .then((data) => {
-          alert("Transaksi berhasil: " + JSON.stringify(data));
+          alert("Transaksi Berhasil!");
+          console.log("Transaksi berhasil: " + JSON.stringify(data));
           document.getElementById("sendMoneyForm").reset();
         })
         .catch((error) => {
           console.error("Terjadi kesalahan:", error);
-          alert("Terjadi kesalahan, coba lagi.");
+          alert("Terjadi kesalahan saat memproses transaksi. Coba lagi.");
         });
     });
 });
