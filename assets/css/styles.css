@@ -776,52 +776,68 @@ footer {
   display: block;
 }
 
-/* Media Query untuk tampilan Mobile */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Layout responsif untuk hero section */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
     text-align: center;
+    gap: 10px; /* Tambahkan gap untuk jarak antar elemen */
   }
 
-  nav ul {
+  .nav-menu {
+    display: none;
     flex-direction: column;
-    gap: 10px;
+    background-color: #fff;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    display: flex;
+    transition: all 0.3s ease; /* Transisi untuk menu */
+    transform: translateY(0);
+    opacity: 1;
   }
 
   .hero {
     flex-direction: column;
     padding: 20px;
     text-align: center;
-  }
-  .hero-text {
-    margin-bottom: 20px;
-  }
-  .hero-text h2 {
-    font-size: 28px;
-  }
-
-  .hero-text p {
-    font-size: 16px;
+    gap: 20px; /* Tambahkan gap antar elemen */
   }
 
   .hero-image img {
     max-width: 100%;
     height: auto;
-  }
-
-  .clients-logos {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .platform-overview .row,
-  .login-expand-section .row {
-    flex-direction: column;
-    text-align: center;
+    margin: auto; /* Agar gambar terpusat */
   }
 
   .cta-section {
     padding: 20px;
+    text-align: center; /* Pastikan teks terpusat */
   }
 
   .testimonials-section .carousel {
@@ -833,16 +849,10 @@ footer {
     gap: 20px;
   }
 
-  .carousel {
-    flex-direction: column;
-  }
   .journey-section .container-journey {
     flex-direction: column;
     text-align: center;
-  }
-
-  .text-content-explore h2 {
-    font-size: 24px;
+    gap: 20px; /* Tambahkan jarak antar elemen */
   }
 
   footer {

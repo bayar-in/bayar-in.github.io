@@ -11,13 +11,18 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B66QPE5BY6"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-B66QPE5BY6"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-B66QPE5BY6');
+      gtag("config", "G-B66QPE5BY6");
     </script>
   </head>
   <body>
@@ -25,13 +30,21 @@
       <div class="logo">
         <h1>Bayar-in.</h1>
       </div>
-      <nav>
+      <div class="menu-toggle" id="menu-toggle">
+        <!-- Ikon hamburger -->
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="nav-menu" id="nav-menu">
         <ul>
           <li><a href="">Home</a></li>
           <li class="dropdown">
             <a href="#">Features</a>
             <ul class="dropdown-menu">
-              <li><a href="./src/page/transfer/transfer.html">Kirim Duit</a></li>
+              <li>
+                <a href="./src/page/transfer/transfer.html">Kirim Duit</a>
+              </li>
               <li><a href="#">E-Wallet</a></li>
               <li><a href="#">Top-up dan Tagihan</a></li>
             </ul>
@@ -42,13 +55,14 @@
       </nav>
       <div class="auth-buttons">
         <!-- Tombol login -->
-        <a href="/src/page/login/login.html" class="signin-btn" id="sign-in-btn">Sign in</a>
-      
+        <a href="/src/page/login/login.html" class="signin-btn" id="sign-in-btn"
+          >Sign in</a
+        >
+
         <!-- Tombol logout -->
         <div class="profile" id="profile-section" style="display: none">
           <button id="logout-btn">Logout</button>
         </div>
-      </div>      
       </div>
     </header>
 
@@ -85,7 +99,11 @@
       </div>
 
       <div class="hero-image transition-element-right">
-        <img src="./assets/img/Payment_page.png" alt="Visa Card" />
+        <img
+          src="./assets/img/Payment_page.png"
+          alt="Visa Card"
+          class="image-responsive"
+        />
       </div>
     </section>
 

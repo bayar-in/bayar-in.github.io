@@ -21,36 +21,59 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("submit", function (event) {
       event.preventDefault();
 
-      const senderName = document.getElementById("senderName").value;
-      const senderEmail = document.getElementById("senderEmail").value;
-      const senderPhoneorrekening = document.getElementById(
-        "senderPhoneorrekening"
-      ).value;
-      const sendAmount = document.getElementById("sendAmount").value;
-      const selectedBank = document.getElementById("selectedBank").value;
-      const deliveryType = document.getElementById("deliveryType").value;
+      // Ambil nilai dari form
+      const senderName = document.getElementById("senderName").value.trim();
+      const senderEmail = document.getElementById("senderEmail").value.trim();
+      const senderPhoneorrekening = document
+        .getElementById("senderPhoneorrekening")
+        .value.trim();
+      const sendAmount = parseFloat(
+        document.getElementById("sendAmount").value.trim()
+      );
+      const selectedBank = document.getElementById("selectedBank").value.trim();
+      const deliveryType = document.getElementById("deliveryType").value.trim();
 
+      // Validasi form
       if (
         !senderName ||
         !senderEmail ||
         !senderPhoneorrekening ||
-        !sendAmount ||
+        isNaN(sendAmount) ||
+        sendAmount <= 0 ||
         !selectedBank ||
         !deliveryType
       ) {
-        alert("Harap lengkapi semua data.");
+        alert("Harap lengkapi semua data dengan benar.");
         return;
       }
 
+      // Peta bank ke merchant_id
+      const merchantIDs = {
+        BRI: "672d353c627d47e285279f32",
+        BCA: "abc123merchantidbca",
+        Mandiri: "mandiriMerchantID",
+        BNI: "bniMerchantID",
+        ShopeePay: "shopeepayMerchantID",
+        DANA: "danaMerchantID",
+      };
+
+      const merchant_id = merchantIDs[selectedBank];
+      if (!merchant_id) {
+        alert("Bank yang dipilih tidak valid.");
+        return;
+      }
+
+      // Siapkan data untuk dikirim
       const requestData = {
-        user_id: senderPhoneorrekening,
-        merchant_id: selectedBank,
-        amount: parseFloat(sendAmount),
+        user_id: senderPhoneorrekening, // Nomor telepon pengguna sebagai user_id
+        merchant_id: merchant_id, // merchant_id berdasarkan pilihan bank
+        amount: sendAmount,
         currency: "IDR",
         status: "pending",
         description: `Transfer ke ${selectedBank} melalui ${deliveryType}`,
       };
 
+      // Kirim data ke server
       fetch(apiTransactionEndpoint, {
         method: "POST",
         headers: {
@@ -60,7 +83,10 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then((response) => {
           if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            return response.json().then((error) => {
+              console.error("Detail error:", error);
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            });
           }
           return response.json();
         })
@@ -70,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch((error) => {
           console.error("Terjadi kesalahan:", error);
-          alert("Terjadi kesalahan, coba lagi.");
+          alert("Terjadi kesalahan saat memproses transaksi. Coba lagi.");
         });
     });
 });
