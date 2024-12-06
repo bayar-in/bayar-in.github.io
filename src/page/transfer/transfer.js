@@ -91,7 +91,8 @@ document.addEventListener("DOMContentLoaded", function () {
           return response.json();
         })
         .then((data) => {
-          alert("Transaksi berhasil: " + JSON.stringify(data));
+          alert("Transaksi Berhasil!");
+          console.log("Transaksi berhasil: " + JSON.stringify(data));
           document.getElementById("sendMoneyForm").reset();
         })
         .catch((error) => {
