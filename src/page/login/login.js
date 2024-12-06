@@ -1,5 +1,6 @@
 // import { endpointLogin } from "./../helper/url.js";
 // console.log(endpointLogin);
+import Swal from 'sweetalert2'
 
 
 document
