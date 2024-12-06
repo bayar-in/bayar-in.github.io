@@ -126,6 +126,11 @@ nav ul li a:hover {
   color: #fff;
 }
 
+.logout-btn {
+  background-color: #333;
+  color: #fff;
+}
+
 .hero {
   display: flex;
   justify-content: space-between;
