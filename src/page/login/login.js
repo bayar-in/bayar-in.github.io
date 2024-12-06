@@ -48,16 +48,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function logout() {
-  // Hapus status login dan token dari localStorage
-  
+  // Remove login status and token from localStorage
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("token");
-  // Refresh halaman agar tombol kembali ke kondisi "Sign in"
-  location.reload();
-  document.cookie = '_ga_B66QPE5BY6=; Max-Age=0; path=/; domain=' + window.location.hostname;document.cookie = '_ga=; Max-Age=0; path=/; domain=' + window.location.hostname;
 
-  
-  document.cookie = '_ga=; Max-Age=0; path=/; domain=' + window.location.hostname;document.cookie = '_ga=; Max-Age=0; path=/; domain=' + window.location.hostname;
+  // Clear cookies related to Google Analytics (if necessary)
+  document.cookie = '_ga_B66QPE5BY6=; Max-Age=0; path=/; domain=' + window.location.hostname;
+  document.cookie = '_ga=; Max-Age=0; path=/; domain=' + window.location.hostname;
+
+  // Redirect to index.html after logout
+  window.location.href = "./index.html"; // Redirect to index.html
 }
 
 // document.querySelector(".login-form").addEventListener("submit", async function (event) {
