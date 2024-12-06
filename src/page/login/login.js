@@ -1,6 +1,7 @@
 // import { endpointLogin } from "./../helper/url.js";
 // console.log(endpointLogin);
 
+
 document
   .querySelector(".login-form")
   .addEventListener("submit", async function (event) {
@@ -24,22 +25,47 @@ document
     if (response.ok) {
       localStorage.setItem("isLoggedIn", true);
       localStorage.setItem("token", responseData.token);
-      window.location.replace("./../dashboard/dashboard.html");
-      // alert("Login berhasil");
-      Swal.fire("Login Berhasil")
+      // Show success alert using SweetAlert2
+      Swal.fire({
+        title: "Login Berhasil",
+        icon: "success", // You can set this to "success", "info", "warning", "error", etc.
+        confirmButtonText: "OK" // Customize the button text if needed
+      }).then(() => {
+        // Redirect to the dashboard after the alert is closed
+        window.location.replace("./../dashboard/dashboard.html");
+      });
       console.log(responseData);
     } else {
-      swal({
+      // Show error alert using SweetAlert2
+      Swal.fire({
         title: "Error",
         text: responseData.message || "Login gagal, periksa kembali data Anda.",
-        icon: "error", // You can change this to "success", "warning", etc. based on your needs
-        button: "OK", // Customize the button text if needed
+        icon: "error", // Set the icon to "error"
+        confirmButtonText: "OK" // Customize the button text if needed
       }).then(() => {
         console.log(responseData); // untuk memeriksa error dari server
       });
-      // alert(responseData.message || "Login gagal, periksa kembali data Anda.");
-      // console.log(responseData); // untuk memeriksa error dari server
     }
+
+    // if (response.ok) {
+    //   localStorage.setItem("isLoggedIn", true);
+    //   localStorage.setItem("token", responseData.token);
+    //   window.location.replace("./../dashboard/dashboard.html");
+    //   // alert("Login berhasil");
+    //   Swal.fire("Login Berhasil")
+    //   console.log(responseData);
+    // } else {
+    //   swal({
+    //     title: "Error",
+    //     text: responseData.message || "Login gagal, periksa kembali data Anda.",
+    //     icon: "error", // You can change this to "success", "warning", etc. based on your needs
+    //     button: "OK", // Customize the button text if needed
+    //   }).then(() => {
+    //     console.log(responseData); // untuk memeriksa error dari server
+    //   });
+    //   // alert(responseData.message || "Login gagal, periksa kembali data Anda.");
+    //   // console.log(responseData); // untuk memeriksa error dari server
+    // }
   });
 
 // document.addEventListener("DOMContentLoaded", function () {
