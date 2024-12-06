@@ -37,9 +37,9 @@
 //   const signInBtn = document.getElementById("sign-in-btn");
 
 //   if (localStorage.getItem("isLoggedIn") === "true") {
- 
+
 //     signInBtn.textContent = "Log out";
-//     signInBtn.href = "#"; 
+//     signInBtn.href = "#";
 //     signInBtn.addEventListener("click", logout);
 //   } else {
 
@@ -47,19 +47,48 @@
 //   }
 // });
 
+// Fungsi logout
 function logout() {
-  // Remove login status and token from localStorage
+  // Hapus status login dan token dari localStorage
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("token");
-  window.Cookies.remove("login")
 
-  // Clear cookies related to Google Analytics (if necessary)
-  document.cookie = '_ga_B66QPE5BY6=; Max-Age=0; path=/; domain=' + window.location.hostname;
-  document.cookie = '_ga=; Max-Age=0; path=/; domain=' + window.location.hostname;
+  // Hapus cookies yang mungkin terkait dengan sesi
+  document.cookie =
+    "_ga_B66QPE5BY6=; Max-Age=0; path=/; domain=" + window.location.hostname;
+  document.cookie =
+    "_ga=; Max-Age=0; path=/; domain=" + window.location.hostname;
 
-  // Redirect to index.html after logout
-  window.location.href = "./../../../index.html"; // Redirect to index.html
+  // Tambahkan penghapusan cookies lain jika diperlukan
+  if (window.Cookies) {
+    window.Cookies.remove("login");
+  }
+
+  // Redirect ke halaman login atau homepage
+  window.location.href = "./../../../index.html";
 }
+
+// Fungsi untuk memeriksa status login
+function checkLoginStatus() {
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  // Jika belum login, redirect ke halaman login
+  if (isLoggedIn !== "true") {
+    window.location.href = "./../../../index.html";
+  }
+}
+
+// Event listener saat DOM selesai dimuat
+document.addEventListener("DOMContentLoaded", () => {
+  // Periksa status login
+  checkLoginStatus();
+
+  // Tambahkan event listener ke tombol logout
+  const logoutLinks = document.querySelectorAll('[onclick="logout()"]');
+  logoutLinks.forEach((link) => {
+    link.addEventListener("click", logout);
+  });
+});
 
 // document.querySelector(".login-form").addEventListener("submit", async function (event) {
 //     event.preventDefault();
