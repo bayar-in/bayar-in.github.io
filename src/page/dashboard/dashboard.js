@@ -48,24 +48,24 @@
 // });
 
 // Fungsi logout
+// Fungsi logout
 function logout() {
   // Hapus status login dan token dari localStorage
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("token");
 
-  // Hapus cookies yang mungkin terkait dengan sesi
-  document.cookie =
-    "_ga_B66QPE5BY6=; Max-Age=0; path=/; domain=" + window.location.hostname;
-  document.cookie =
-    "_ga=; Max-Age=0; path=/; domain=" + window.location.hostname;
-
-  // Tambahkan penghapusan cookies lain jika diperlukan
+  // Hapus cookies menggunakan js-cookie jika tersedia
   if (window.Cookies) {
-    window.Cookies.remove("login");
+    Cookies.remove("_ga_B66QPE5BY6", {
+      path: "/",
+      domain: window.location.hostname,
+    });
+    Cookies.remove("_ga", { path: "/", domain: window.location.hostname });
+    Cookies.remove("login", { path: "/", domain: window.location.hostname });
   }
 
   // Redirect ke halaman login atau homepage
-  window.location.href = "./../../../index.html";
+  window.location.href = "/bayar-in.github.io/index.html";
 }
 
 // Fungsi untuk memeriksa status login
@@ -74,7 +74,7 @@ function checkLoginStatus() {
 
   // Jika belum login, redirect ke halaman login
   if (isLoggedIn !== "true") {
-    window.location.href = "./../../../index.html";
+    window.location.href = "/bayar-in.github.io/src/page/login/login.html";
   }
 }
 
@@ -86,7 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Tambahkan event listener ke tombol logout
   const logoutLinks = document.querySelectorAll('[onclick="logout()"]');
   logoutLinks.forEach((link) => {
-    link.addEventListener("click", logout);
+    link.addEventListener("click", (e) => {
+      e.preventDefault(); // Cegah default link behavior
+      logout();
+    });
   });
 });
 
