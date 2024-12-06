@@ -25,11 +25,20 @@ document
       localStorage.setItem("isLoggedIn", true);
       localStorage.setItem("token", responseData.token);
       window.location.replace("./../dashboard/dashboard.html");
-      alert("Login berhasil");
+      // alert("Login berhasil");
+      Swal.fire("Login Berhasil")
       console.log(responseData);
     } else {
-      alert(responseData.message || "Login gagal, periksa kembali data Anda.");
-      console.log(responseData); // untuk memeriksa error dari server
+      swal({
+        title: "Error",
+        text: responseData.message || "Login gagal, periksa kembali data Anda.",
+        icon: "error", // You can change this to "success", "warning", etc. based on your needs
+        button: "OK", // Customize the button text if needed
+      }).then(() => {
+        console.log(responseData); // untuk memeriksa error dari server
+      });
+      // alert(responseData.message || "Login gagal, periksa kembali data Anda.");
+      // console.log(responseData); // untuk memeriksa error dari server
     }
   });
 
