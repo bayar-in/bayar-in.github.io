@@ -8,6 +8,6 @@ import {
   //wauthparam.keyword="aHR0cHM6Ly93YS5tZS82Mjg5NTgwMDAwNjAwMD90ZXh0PXdoNHQ1YXV0aDA=";
   wauthparam.keyword = "aHR0cHM6Ly93YS5tZS82Mjg4MTAyMjUyMjkyMD90ZXh0PXdoNHQ1YXV0aDA=";
   wauthparam.tokencookiehourslifetime = 18;
-  wauthparam.redirect = "/auth";
+  wauthparam.redirect = "/";
   deleteCookie(wauthparam.tokencookiename);
   qrController(wauthparam);
