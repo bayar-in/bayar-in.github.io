@@ -47,9 +47,6 @@
 //   }
 // });
 
-// Fungsi logout
-// Fungsi logout
-// Fungsi logout
 function logout() {
   // Hapus status login dan token dari localStorage
   localStorage.removeItem("isLoggedIn");
@@ -65,6 +62,7 @@ function checkLoginStatus() {
 
   // Jika belum login, redirect ke halaman login
   if (isLoggedIn !== "true") {
+    alert("Anda harus login terlebih dahulu");
     window.location.href = "/bayar-in.github.io/src/page/login/login.html";
   }
 }
