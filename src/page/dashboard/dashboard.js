@@ -49,20 +49,11 @@
 
 // Fungsi logout
 // Fungsi logout
+// Fungsi logout
 function logout() {
   // Hapus status login dan token dari localStorage
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("token");
-
-  // Hapus cookies menggunakan js-cookie jika tersedia
-  if (window.Cookies) {
-    Cookies.remove("_ga_B66QPE5BY6", {
-      path: "/",
-      domain: window.location.hostname,
-    });
-    Cookies.remove("_ga", { path: "/", domain: window.location.hostname });
-    Cookies.remove("login", { path: "/", domain: window.location.hostname });
-  }
 
   // Redirect ke halaman login atau homepage
   window.location.href = "/bayar-in.github.io/index.html";
@@ -71,13 +62,9 @@ function logout() {
 // Fungsi untuk memeriksa status login
 function checkLoginStatus() {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
-  const isLogIn = cookies.getItem("isLogIn")
 
   // Jika belum login, redirect ke halaman login
   if (isLoggedIn !== "true") {
-    window.location.href = "/bayar-in.github.io/src/page/login/login.html";
-  }
-  if (isLogIn !== "true") {
     window.location.href = "/bayar-in.github.io/src/page/login/login.html";
   }
 }
