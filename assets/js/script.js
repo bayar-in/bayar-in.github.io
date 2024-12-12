@@ -13,8 +13,13 @@ function checkLoginStatus() {
 
 // Fungsi untuk simulasi login
 function login() {
+  // Saat user login, set localStorage atau mekanisme autentikasi Anda
   localStorage.setItem("isLoggedIn", "true");
-  localStorage.setItem("profilePicture", "user-profile.jpg");
+
+  // Bisa juga menyimpan nama pengguna atau foto profil
+  localStorage.setItem("profilePicture", "user-profile.jpg"); // Path gambar profil
+
+  // Panggil ulang fungsi untuk memperbarui UI
   checkLoginStatus();
 }
 
@@ -23,7 +28,6 @@ function login() {
 function logout() {
   // Hapus status login dari localStorage
   localStorage.removeItem("isLoggedIn");
-  localStorage.removeItem("profilePicture");
 
   // Alihkan pengguna ke halaman login
   window.location.href = "/bayar-in.github.io/src/page/login/login.html";
@@ -35,8 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (logoutButton) {
     logoutButton.addEventListener("click", logout);
   }
-
-  checkLoginStatus();
 });
 
 // Fungsi untuk memeriksa status login

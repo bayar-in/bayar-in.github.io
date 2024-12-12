@@ -22,7 +22,7 @@ document
     const responseData = await response.json();
 
     if (response.ok) {
-      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("token", responseData.token);
       window.location.replace("./../dashboard/dashboard.html");
       alert("Login berhasil");
