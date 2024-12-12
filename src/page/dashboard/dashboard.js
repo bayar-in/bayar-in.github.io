@@ -62,7 +62,6 @@ function checkLoginStatus() {
 
   // Jika belum login, redirect ke halaman login
   if (isLoggedIn !== "true") {
-    alert("Anda harus login terlebih dahulu");
     window.location.href = "/bayar-in.github.io/src/page/login/login.html";
   }
 }
