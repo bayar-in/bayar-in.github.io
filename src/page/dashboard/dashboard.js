@@ -60,9 +60,16 @@ function logout() {
 function checkLoginStatus() {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
 
-  // Jika belum login, redirect ke halaman login
+  // Jika belum login, tampilkan alert dan redirect ke halaman login
   if (isLoggedIn !== "true") {
-    window.location.href = "/bayar-in.github.io/src/page/login/login.html";
+    Swal.fire({
+      title: "Akses Ditolak",
+      text: "Anda belum login. Silakan login terlebih dahulu.",
+      icon: "warning",
+      confirmButtonText: "OK",
+    }).then(() => {
+      window.location.href = "/bayar-in.github.io/src/page/login/login.html";
+    });
   }
 }
 
