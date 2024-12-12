@@ -51,13 +51,6 @@ function logout() {
   // Remove login status and token from localStorage
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("token");
-  window.Cookies.remove("login");
-
-  // Clear cookies related to Google Analytics (if necessary)
-  document.cookie =
-    "_ga_B66QPE5BY6=; Max-Age=0; path=/; domain=" + window.location.hostname;
-  document.cookie =
-    "_ga=; Max-Age=0; path=/; domain=" + window.location.hostname;
 
   // Redirect to index.html after logout
   window.location.href = "./index.html"; // Redirect to index.html
