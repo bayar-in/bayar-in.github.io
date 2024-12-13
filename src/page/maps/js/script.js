@@ -34,27 +34,4 @@ document.getElementById("regionSearch").addEventListener("click", function () {
 });
 
 
-function checkLoginStatus() {
-  const isLoggedIn = window.Cookies.get("login");
 
-  // Jika belum login, tampilkan alert dan redirect ke halaman login
-  if (isLoggedIn) {
-        // Jika cookie ada, redirect ke dashboard
-        Swal.fire({
-          title: "Sukses",
-          text: "Login Berhasil!!",
-          icon: "success",
-          confirmButtonText: "OK",
-      }) // Ganti dengan URL dashboard Anda
-    } else {
-        // Jika cookie tidak ada, tampilkan alert atau lakukan tindakan lain
-        Swal.fire({
-            title: "Akses Ditolak",
-            text: "Anda belum login. Silakan login terlebih dahulu.",
-            icon: "warning",
-            confirmButtonText: "OK",
-        }).then(() => {
-            window.location.href = "/login"; // Redirect ke halaman login
-        });
-    }
-}
