@@ -15,28 +15,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-
-    <style>
-      #listing-map {
-        width: 100%;
-        height: 100%;
-
-        .ol-viewport {
-          width: 100%;
-          height: 100%;
-          border-radius: 2.4vw;
-
-          .ol-zoom {
-            top: 22px;
-            left: 10px;
-          }
-
-          .ol-attribution {
-            padding-right: 8px;
-          }
-        }
-      }
-    </style>
   </head>
   <body class="body_maps">
     <!-- Navbar -->
@@ -83,41 +61,52 @@
         Untuk informasi lebih lengkap, silahkan datang ke tempat kamu!
       </p>
     </div>
-    <!-- Main Content -->
     <div class="container mt-4">
       <div class="row">
-        <!-- Map Section -->
+        <!-- Map -->
         <div class="col-lg-8 mb-3">
-          <div id="listing-map" style="width: 100%; height: 400px"></div>
+          <div id="map"></div>
         </div>
 
-        <!-- Input Section -->
-        <div class="col-lg-4">
-          <div class="card p-3">
+        <div class="col-lg-4 mt-2 popup">
+          <button id="toggle-btn" class="mb-3 w-100 btn_toggle">Show</button>
+          <div id="toggle-content" class="card p-3 hidden">
             <h5 class="card-title">Radius Maksimal</h5>
+
+            <button id="regionSearch" class="btn btn-secondary w-100 mb-3">
+              Wilayah
+            </button>
+            <button id="btn-distance" class="btn btn-secondary w-100 mb-3">
+              Hitung
+            </button>
             <div class="input-group mb-3">
               <input
                 type="number"
-                id="maxDistance"
+                id="distance-input"
                 class="form-control"
                 placeholder="Masukkan radius (m)"
-                value="100"
               />
             </div>
-            <button id="searchRoad" class="btn btn-primary w-100">
-              Cari Jalan
-            </button>
-            <button id="searchRegion" class="btn btn-secondary w-100 mt-3">
-              Cari Wilayah
-            </button>
+            <!-- Input token tambahan -->
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                id="token-input"
+                class="form-control"
+                placeholder="Token Login (jika ada)"
+              />
+            </div>
+            <div id="result-info" class="result-info" style="display: none">
+              Hasil akan muncul di sini.
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="./js/config/peta.js"></script>
-
+    <script src="js/croot.js" type="module"></script>
+    <script src="js/script.js"></script>
+    <script src="/bayar-in.github.io/assets/js/script.js"></script>
   </body>
 </html>
