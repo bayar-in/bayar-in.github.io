@@ -29,6 +29,4 @@ document.getElementById("btn-distance").addEventListener("click", function () {
   }
 });
 
-document.getElementById("regionSearch").addEventListener("click", function () {
-  alert("Fitur pencarian daerah belum diimplementasikan!");
-});
+
