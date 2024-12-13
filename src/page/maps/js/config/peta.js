@@ -71,10 +71,17 @@ let clickedCoordinates = null;
 
 export async function displayMap() {
   console.log("Initializing map...");
-  const map = new Map({
+  const map = new ol.Map({
     target: "listing-map",
-    layers: [basemap, roadsLayer, markerLayer, polygonLayer],
-    view: defaultstartmap,
+    layers: [
+      new ol.layer.Tile({
+        source: new ol.source.OSM(),
+      }),
+    ],
+    view: new ol.View({
+      center: ol.proj.fromLonLat([106.8456, -6.2088]), // Contoh: Jakarta
+      zoom: 10,
+    }),
   });
 
   map.on("singleclick", function (event) {
