@@ -70,6 +70,7 @@ const polygonLayer = new VectorLayer({
 let clickedCoordinates = null;
 
 export async function displayMap() {
+  console.log("Initializing map...");
   const map = new Map({
     target: "listing-map",
     layers: [basemap, roadsLayer, markerLayer, polygonLayer],

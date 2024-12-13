@@ -15,6 +15,28 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+
+    <style>
+      #listing-map {
+        width: 100%;
+        height: 100%;
+
+        .ol-viewport {
+          width: 100%;
+          height: 100%;
+          border-radius: 2.4vw;
+
+          .ol-zoom {
+            top: 22px;
+            left: 10px;
+          }
+
+          .ol-attribution {
+            padding-right: 8px;
+          }
+        }
+      }
+    </style>
   </head>
   <body class="body_maps">
     <!-- Navbar -->
@@ -61,55 +83,42 @@
         Untuk informasi lebih lengkap, silahkan datang ke tempat kamu!
       </p>
     </div>
+    <!-- Main Content -->
     <div class="container mt-4">
       <div class="row">
-        <!-- Map -->
+        <!-- Map Section -->
         <div class="col-lg-8 mb-3">
-          <div id="map"></div>
+          <div id="listing-map" style="width: 100%; height: 400px"></div>
         </div>
 
-        <!-- <div class="col-lg-4 mt-2 popup">
-          <button id="toggle-btn" class="mb-3 w-auto btn_toggle">Show</button>
-          <div id="toggle-content" class="card p-3 hidden">
+        <!-- Input Section -->
+        <div class="col-lg-4">
+          <div class="card p-3">
             <h5 class="card-title">Radius Maksimal</h5>
-
-            <button id="regionSearch" class="btn btn-secondary w-100 mb-3">
-              Daerah
-            </button>
             <div class="input-group mb-3">
               <input
                 type="number"
-                id="distance-input"
+                id="maxDistance"
                 class="form-control"
                 placeholder="Masukkan radius (m)"
+                value="100"
               />
-              <button id="btn-distance" class="">Hitung</button>
             </div>
-            <div id="result-info" class="result-info" style="display: none">
-              Hasil akan muncul di sini.
-            </div>
+            <button id="searchRoad" class="btn btn-primary w-100">
+              Cari Jalan
+            </button>
+            <button id="searchRegion" class="btn btn-secondary w-100 mt-3">
+              Cari Wilayah
+            </button>
           </div>
-        </div> -->
+        </div>
       </div>
-    </div>
-    <div class="d-grid gap-2 p-5">
-      <button id="regionSearch" class="btn btn-outline-info">Wilayah</button>
-      <form class="form-floating">
-        <input
-          type="number"
-          class="form-control"
-          id="distance-input"
-          placeholder="massukkan radius (M)"
-          value="100"
-        />
-        <label for="radius">Masukkan Radius</label>
-      </form>
-      <button id="btn-distance" class="btn btn-outline-success">hitung</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/croot.js" type="module"></script>
-    <script src="js/script.js" type="module"></script>
-    <script src="/bayar-in.github.io/assets/js/script.js"></script>
+    <script type="module">
+      import { displayMap } from "/js/config/peta.js";
+      window.onload = displayMap;
+    </script>
   </body>
 </html>
