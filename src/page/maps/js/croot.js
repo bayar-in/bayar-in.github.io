@@ -303,7 +303,7 @@ function validateToken() {
   if (!token) {
     Swal.fire({
       title: "Authentication Error",
-      text: "You must be logged in to perform this action!",
+      text: "Anda harus login terlebih dahulu",
       icon: "error",
       confirmButtonText: "Go to Login",
     }).then(() => {
