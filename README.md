@@ -68,6 +68,8 @@ Prasyarat:
 
     [Bahasa Pemrograman Go, Framework Go GIN]
 
+    [HTML, CSS, JavaScript]
+
     [SupaBase]
 
     Clone repositori ini:
